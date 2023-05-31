@@ -1,0 +1,166 @@
+
+.a-transparent{opacity: 1;}
+<a href="*" class="a-transparent">
+    Нашел!
+  </a>
+
+
+<style>
+    .dot_container {
+        position: absolute;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .dot_container-relative {
+        position: relative;
+        width: 900px;
+        height: 300px;
+    }
+
+    .dot {
+        display: block;
+        position: absolute;
+        top: 300px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(255, 255, 0);
+    }
+
+    @keyframes glow {
+        0% {
+            box-shadow: 0 0 5px 2px rgba(255, 255, 0);
+        }
+        50% {
+            box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.4);
+        }
+        100% {
+            box-shadow: 0 0 5px 2px rgba(255, 255, 0);
+        }
+    }
+
+    @keyframes x {
+        0% {
+            left: 0;
+        }
+        35% {
+            left: 300px;
+        }
+        60% {
+            left: 550px;
+        }
+        85% {
+            left: 700px;
+        }
+
+        100% {
+            left: 900px;
+        }
+    }
+
+    @keyframes y {
+        0% {
+            top: 300px;
+        }
+        20% {
+            top: 200px;
+        }
+        40% {
+            top: 240px;
+        }
+        65% {
+            top: 150px;
+        }
+        100% {
+            top: 0px;
+        }
+    }
+
+    @keyframes x2 {
+        0% {
+            left: 700px;
+        }
+        25% {
+            left: 600px;
+        }
+        40% {
+            left: 500px;
+        }
+        60% {
+            left: 250px;
+        }
+        75% {
+            left: 200px;
+        }
+        90% {
+            left: 250px;
+        }
+
+        100% {
+            left: 300px;
+        }
+    }
+
+    @keyframes y2 {
+        0% {
+            top: 300px;
+        }
+        20% {
+            top: 230px;
+        }
+        40% {
+            top: 170px;
+        }
+        60% {
+            top: 140px;
+        }
+        75% {
+            top: 120px;
+        }
+        90% {
+            top: 100px;
+        }
+
+        100% {
+            top: 0px;
+        }
+    }
+
+    .dot1 {
+        animation: x 10s linear alternate infinite,
+            y 15s cubic-bezier(0.83, 0, 0.17, 1) alternate infinite,
+            glow 4s infinite;
+    }
+
+    .dot2 {
+        animation: x 10s linear alternate infinite,
+            y 20s linear alternate infinite, glow 4s infinite;
+        animation-delay: 5s;
+    }
+    .dot3 {
+        left: 10px;
+        animation: x 12s linear alternate infinite,
+            y 18s linear alternate infinite, glow 4s infinite;
+        animation-delay: 1.5s;
+    }
+
+    .dot4 {
+        animation: x2 14s linear alternate infinite,
+            y2 8s linear alternate infinite, glow 4s infinite;
+    }
+    .dot5 {
+        animation: x2 9s linear alternate infinite,
+            y2 19s cubic-bezier(0.83, 0, 0.17, 1) alternate infinite,
+            glow 4s infinite;
+        animation-delay: 0.5s;
+    }
+</style>
+
+<div class="dot_container">
+    <div class="dot_container-relative">
+        <div class="dot dot1"></div><div class="dot dot2"></div><div class="dot dot3">
+        </div><div class="dot dot4"></div><div class="dot dot5"></div>
+    </div>
+</div>

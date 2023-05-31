@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    #dot {
+      position: relative;
+      cursor: pointer;
+    }
+    .dot {
+        position: sticky;
+        width: 10px;
+        height: 10px;
+        background-color: rgb(251, 255, 0);
+        border-radius: 50%;
+        top: 800px;
+    }
+  </style>
+</head>
+
+<body>
+
+    <div id="dot" class="dot"></div>
+
+
+  <script>
+     dot.onclick = function() {
+      let start = Date.now();
+
+      let timer = setInterval(function() {
+        let timePassed = Date.now() - start;
+
+        dot.style.left = timePassed / 5 + 'px';
+        dot.style.top = timePassed / -5 + 'px';
+
+
+        if (timePassed > 2000) clearInterval(timer);
+
+      }, 20);
+    }
+  </script>
+
+
+</body>
+
+</html>
+
+
+//////
+
+background:  linear-gradient(90deg, #b3dbd3, #f4d6db);
+color: #777;
+}
+
+.main{
+font: 13px monospace;
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+}
+figure {
+text-align: left;
+position: relative;
+margin: 20px;
+width: 200px;
+height: 200px;
+background: #fff;
+border: 3px solid #eee;
+transition: .2s;
+}
+
+
+
+i {
+display: block;
+position: absolute;
+width: 5px;
+height: 5px;
+border-radius: 5px;
+background: #de4e81;
+animation: x 1.5s linear infinite, y 1.5s ease-in infinite both;
+}
+@keyframes x {
+to {
+    left: 195px;
+}
+from {
+    left: 0;
+}
+}
+@keyframes y {
+to {
+    top: 0;
+}
+from {
+    top: 145px;
+}
+}
+
+.cubic-bezier-1 i {
+animation-timing-function: linear, cubic-bezier(.8, 1.5, .2, -1);
+}
+.cubic-bezier-1:after {
+content: "cubic-bezier()";
+}
+
+
+background:  linear-gradient(90deg, #b3dbd3, #f4d6db);
+color: #777;
+}
+
+.main{
+font: 13px monospace;
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+}
+figure {
+text-align: left;
+position: relative;
+margin: 20px;
+width: 200px;
+height: 200px;
+background: #fff;
+border: 3px solid #eee;
+transition: .2s;
+}
+
+
+
+i {
+display: block;
+position: absolute;
+width: 5px;
+height: 5px;
+border-radius: 5px;
+background: #de4e81;
+animation: x 1.5s linear infinite, y 1.5s ease-in infinite both;
+}
+@keyframes x {
+to {
+    left: 195px;
+}
+from {
+    left: 0;
+}
+}
+@keyframes y {
+to {
+    top: 0;
+}
+from {
+    top: 145px;
+}
+}
+
+.cubic-bezier-1 i {
+animation-timing-function: linear, cubic-bezier(.8, 1.5, .2, -1);
+}
+.cubic-bezier-1:after {
+content: "cubic-bezier()";
+}
+
+<div class="main">
+
+
+    <figure class="cubic-bezier-1"><i></i></figure>
+    
+    
+    </div>
