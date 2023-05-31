@@ -1,0 +1,129 @@
+---
+import Dots from "../components/Dots.astro"
+---
+
+
+<style>
+    main {
+      position: relative;
+      background: linear-gradient(#c9f0ff, #86b1c1 40%, #3488a8 80%);
+      width: 900px;
+      padding: 40px 40px 0 40px;
+    }
+    h1 {
+      text-align: center;
+      margin: auto;
+      /* color: white; */
+      padding: 10px;
+      border-bottom: 3px solid #3488a8;
+      width: 500px;
+    }
+  
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 24px;
+      font-weight: bold;
+      text-path: path("M50,100 C100,0 200,0 250,100");
+    }
+  
+    .PicAndText {
+      position: relative;
+      margin: auto;
+      width: 300px;
+      height: 500px;
+      grid-area: 1/2/3/3;
+    }
+    svg {
+      position: absolute;
+      /* background-color: pink; */
+    }
+    img {
+      position: absolute;
+      top: 70px;
+      left: 10px;
+      width: 300px;
+    }
+  
+    .main_grid {
+      display: grid;
+      grid-template: 1fr 1fr/1fr 362px 1fr;
+      padding-top: 30px;
+    }
+  
+    .fact {color: white;
+      background: linear-gradient(to right, rgb(119,43,134) 1%, transparent);
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+  .p-footer{color: white;
+  text-align: center;}
+    .span-red{color: red;
+    background-color:  rgba(255, 250, 238, 0.445);
+    padding: 0 3px 0 3px;
+border-radius: 6px;}
+   
+  </style>
+  
+
+    <h1>Добро пожаловать в наш мир магии и волшебства!</h1>
+  
+    <div class="main_grid">
+      <div class="Facts Fact1">
+        <h4><span class="fact">Интересный факт 1</span></h4>
+        <p>
+          У нас высокотехнологичный мир и каждый из городов накрыт погодным
+          куполом. Внутри этого купола граждане путем голосования - сами
+          устанавливают погоду!
+        </p>
+      </div>
+      <div class="PicAndText">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="320"
+          height="500"
+        >
+          <title>Текст полукругом</title>
+          <defs>
+            <path d="M-38,240 A150,150 0 0,1 365,260" id="textcircle"></path>
+            <style>
+              text {
+                font-size: 30px;
+              }
+            </style>
+          </defs>
+          <text dy="60" textLength="600">
+            <textPath xlink:href="#textcircle">
+              Имя нашему миру - Аррета</textPath
+            >
+          </text>
+        </svg>
+        <img src="Globe.png" alt="Globe" />
+      </div>
+      <div class="Facts Fact2">
+        <h4><span class="fact">Интересный факт 2</span></h4>
+        <p>У нас можно перемещаться по всему миру мгновенными телепортами.</p>
+      </div>
+  
+      <div class="Facts Fact3">
+        <h4><span class="fact">Интересный факт 3</span></h4>
+        <p>
+          У нас любят зверушек для души и чаще всего держать питомцами: драконов,
+          лошадей и говорящих (разумных) фамилиаров (котиков либо птичек обычно)
+        </p>
+      </div>
+      <div class="Facts Fact4">
+        <h4><span class="fact">Интересный факт 4</span></h4>
+        <p>
+          А еще у нас можно вступать как в традицонные браки (Ж+М), так и в браки
+          с несколькими партнерами любых полов.
+        </p>
+      </div>
+     
+    </div>
+    
+    <Dots></Dots>
+    <footer>
+      <p class="p-footer">Отлови <span class="span-red">красный</span> светлячек, чтобы попасть на следующую страницу. <br> Псcc, он маскируется, но я тебе об этом не говорила...</p>
+    </footer>
