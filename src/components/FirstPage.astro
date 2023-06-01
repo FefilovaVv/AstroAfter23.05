@@ -51,7 +51,8 @@ import Dots from "../components/Dots.astro"
       padding-top: 30px;
     }
   
-    .fact {color: white;
+    .fact {font-weight: bold;
+        color: white;
       background: linear-gradient(to right, rgb(119,43,134) 1%, transparent);
       padding: 5px 10px;
       border-radius: 8px;
@@ -70,7 +71,7 @@ border-radius: 6px;}
   
     <div class="main_grid">
       <div class="Facts Fact1">
-        <h4><span class="fact">Интересный факт 1</span></h4>
+    <span class="fact">Интересный факт 1</span>
         <p>
           У нас высокотехнологичный мир и каждый из городов накрыт погодным
           куполом. Внутри этого купола граждане путем голосования - сами
@@ -102,19 +103,19 @@ border-radius: 6px;}
         <img src="Globe.png" alt="Globe" />
       </div>
       <div class="Facts Fact2">
-        <h4><span class="fact">Интересный факт 2</span></h4>
+    <span class="fact">Интересный факт 2</span>
         <p>У нас можно перемещаться по всему миру мгновенными телепортами.</p>
       </div>
   
       <div class="Facts Fact3">
-        <h4><span class="fact">Интересный факт 3</span></h4>
+    <span class="fact">Интересный факт 3</span>
         <p>
           У нас любят зверушек для души и чаще всего держать питомцами: драконов,
           лошадей и говорящих (разумных) фамилиаров (котиков либо птичек обычно)
         </p>
       </div>
       <div class="Facts Fact4">
-        <h4><span class="fact">Интересный факт 4</span></h4>
+    <span class="fact">Интересный факт 4</span>
         <p>
           А еще у нас можно вступать как в традицонные браки (Ж+М), так и в браки
           с несколькими партнерами любых полов.
@@ -125,5 +126,7 @@ border-radius: 6px;}
     
     <Dots></Dots>
     <footer>
-      <p class="p-footer">Отлови <span class="span-red">красный</span> светлячек, чтобы попасть на следующую страницу. <br> Псcc, он маскируется, но я тебе об этом не говорила...</p>
+        <p class="p-footer"></p>
+      <p class="p-footer">Перед тем как попасть в наш мир тебе нужно пройти небольшое анкетирование. <br> Отлови <span class="span-red">красный</span> светлячек, чтобы попасть на первый этап анкетирования </p>
+      <!-- <br> Псcc, он маскируется, но я тебе об этом не говорила... -->
     </footer>
