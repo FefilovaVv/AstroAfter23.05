@@ -1,0 +1,443 @@
+
+<!-- светлячки -->
+<style>
+    .dot_container {
+     position: absolute;
+      top: 400px;
+      display: flex;
+      z-index: 2
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+  
+    .dot_container-relative {
+      position: relative;
+      width: 900px;
+      height: 300px;
+    }
+  
+    .dot {
+      display: block;
+      top: 300px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgb(251,221,157);
+    }
+    
+  
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 6px 3px rgba(251,221,157);
+      }
+      50% {
+        box-shadow: 0 0 10px 5px rgba(251,221,157, 0.4);
+      }
+      100% {
+        box-shadow: 0 0 6px 3px rgba(251,221,157);
+      }
+    }
+  
+    @keyframes DotFly {
+  0% {
+    transform: translate(0px, 300px);
+  }
+  10% {
+    transform: translate(100px, 250px);
+  }
+  15% {
+    transform: translate(120px, 230px);
+  }
+  30% {
+    transform: translate(350px, 200px);
+  }
+  34% {
+    transform: translate(370px, 200px);
+  }
+  37% {
+    transform: translate(400px, 170px);
+  }
+  40% {
+    transform: translate(420px, 150px);
+  }
+  50% {
+    transform: translate(580px, 140px);
+  }
+  54% {
+    transform: translate(610px, 130px);
+  }
+  58% {
+    transform: translate(590px, 100px);
+  }
+  64% {
+    transform: translate(605px, 120px);
+  }
+  68% {
+    transform: translate(590px, 100px);
+  }
+  75% {
+    transform: translate(520px, 90px);
+  }
+  80% {
+    transform: translate(450px, 70px);
+  }
+  85% {
+    transform: translate(490px, 50px);
+  }
+  90% {
+    transform: translate(550px, 60px);
+  }
+  100% {
+    transform: translate(600px, 40px);
+  }
+} 
+@keyframes DotFly2 {
+  0% {
+    transform: translate(900px, 300px);
+  }
+  7% {
+    transform: translate(800px, 280px);
+  }
+  14% {
+    transform: translate(730px, 260px);
+  }
+  21% {
+    transform: translate(700px, 240px);
+  }
+  28% {
+    transform: translate(710px, 200px);
+  }
+  35% {
+    transform: translate(710px, 180px);
+  }
+  42% {
+    transform: translate(650px, 140px);
+  }
+  49% {
+    transform: translate(550px, 120px);
+  }
+  56% {
+    transform: translate(450px, 130px);
+  }
+  63% {
+    transform: translate(300px, 140px);
+  }
+  70% {
+    transform: translate(220px, 120px);
+  }
+  77% {
+    transform: translate(200px, 100px);
+  }
+  84% {
+    transform: translate(150px, 60px);
+  }
+  91% {
+    transform: translate(100px, 40px);
+  }
+  100% {
+    transform: translate(0px, 20px);
+  }
+}
+@keyframes DotFly3 {
+  0% {
+    transform: translate(0px, 300px);
+  }
+  7% {
+    transform: translate(100px, 280px);
+  }
+  14% {
+    transform: translate(170px, 260px);
+  }
+  21% {
+    transform: translate(200px, 240px);
+  }
+  28% {
+    transform: translate(190px, 200px);
+  }
+  35% {
+    transform: translate(190px, 180px);
+  }
+  42% {
+    transform: translate(250px, 140px);
+  }
+  49% {
+    transform: translate(350px, 120px);
+  }
+  56% {
+    transform: translate(450px, 130px);
+  }
+  63% {
+    transform: translate(600px, 140px);
+  }
+  70% {
+    transform: translate(680px, 120px);
+  }
+  77% {
+    transform: translate(700px, 100px);
+  }
+  84% {
+    transform: translate(750px, 60px);
+  }
+  91% {
+    transform: translate(800px, 40px);
+  }
+  100% {
+    transform: translate(900px, 20px);
+  }
+}
+@keyframes DotFly4 {
+  0% {
+    transform: translate(50px, 280px);
+  }
+  7% {
+    transform: translate(150px, 260px);
+  }
+  14% {
+    transform: translate(220px, 240px);
+  }
+  21% {
+    transform: translate(250px, 220px);
+  }
+  28% {
+    transform: translate(240px, 180px);
+  }
+  35% {
+    transform: translate(240px, 160px);
+  }
+  42% {
+    transform: translate(300px, 120px);
+  }
+  49% {
+    transform: translate(400px, 100px);
+  }
+  56% {
+    transform: translate(500px, 110px);
+  }
+  63% {
+    transform: translate(650px, 120px);
+  }
+  70% {
+    transform: translate(730px, 100px);
+  }
+  77% {
+    transform: translate(750px, 80px);
+  }
+  84% {
+    transform: translate(800px, 40px);
+  }
+  91% {
+    transform: translate(850px, 20px);
+  }
+  100% {
+    transform: translate(900px, 0px);
+  }
+}
+@keyframes DotFly5 {
+  0% {
+    transform: translate(900px, 280px);
+  }
+  7% {
+    transform: translate(850px, 260px);
+  }
+  14% {
+    transform: translate(820px, 240px);
+  }
+  21% {
+    transform: translate(810px, 220px);
+  }
+  28% {
+    transform: translate(780px, 180px);
+  }
+  35% {
+    transform: translate(740px, 160px);
+  }
+  42% {
+    transform: translate(700px, 120px);
+  }
+  49% {
+    transform: translate(650px, 100px);
+  }
+  56% {
+    transform: translate(600px, 110px);
+  }
+  63% {
+    transform: translate(550px, 120px);
+  }
+  70% {
+    transform: translate(500px, 100px);
+  }
+  77% {
+    transform: translate(450px, 80px);
+  }
+  84% {
+    transform: translate(400px, 40px);
+  }
+  91% {
+    transform: translate(350px, 20px);
+  }
+  100% {
+    transform: translate(300px, 0px);
+  } }
+@keyframes DotFly6 {
+  0% {
+    transform: translate(800px, 220px);
+  }
+  7% {
+    transform: translate(780px, 250.333px);
+  }
+  14% {
+    transform: translate(720px, 263.333px);
+  }
+  21% {
+    transform: translate(660px, 270px);
+  }
+  28% {
+    transform: translate(540px, 260px);
+  }
+  35% {
+    transform: translate(480px, 246.667px);
+  }
+  42% {
+    transform: translate(360px, 233.333px);
+  }
+  49% {
+    transform: translate(300px, 216.667px);
+  }
+  56% {
+    transform: translate(330px, 200px);
+  }
+  63% {
+    transform: translate(360px, 183.333px);
+  }
+  70% {
+    transform: translate(300px, 166.667px);
+  }
+  77% {
+    transform: translate(240px, 150px);
+  }
+  84% {
+    transform: translate(120px, 133.333px);
+  }
+  91% {
+    transform: translate(60px, 116.667px);
+  }
+  100% {
+    transform: translate(0px, 100px);
+  }
+}
+@keyframes DotFly7 {
+  0% {
+    transform: translate(600px, 260px);
+  }
+  10% {
+    transform: translate(550px, 250px);
+  }
+  15% {
+    transform: translate(530px, 230px);
+  }
+  30% {
+    transform: translate(400px, 220px);
+  }
+  34% {
+    transform: translate(380px, 210px);
+  }
+  37% {
+    transform: translate(350px, 190px);
+  }
+  40% {
+    transform: translate(330px, 160px);
+  }
+  50% {
+    transform: translate(170px, 140px);
+  }
+  54% {
+    transform: translate(140px, 130px);
+  }
+  58% {
+    transform: translate(160px, 110px);
+  }
+  64% {
+    transform: translate(145px, 130px);
+  }
+  68% {
+    transform: translate(160px, 110px);
+  }
+  75% {
+    transform: translate(230px, 90px);
+  }
+  80% {
+    transform: translate(300px, 70px);
+  }
+  85% {
+    transform: translate(260px, 50px);
+  }
+  90% {
+    transform: translate(200px, 60px);
+  }
+  100% {
+    transform: translate(0px, 50px);
+  }
+}
+
+
+
+    .dot1 {
+      animation: DotFly 25s linear alternate infinite,
+        glow 4s infinite;
+    }
+    .dot1:before {
+    content: "";
+    position: absolute;
+    width: 40px; 
+    height: 40px; 
+  }
+    #dot1:hover{background-color: red;
+     }
+  
+    .dot2 {
+      animation: DotFly2 25s linear alternate infinite,
+       glow 4s infinite;
+      animation-delay: 4s;
+    }
+ .dot3 {
+      animation: DotFly3 22s linear alternate infinite,
+        glow 4s infinite;
+      animation-delay: 5s;
+    }
+
+ .dot4 {
+      left: 5px;
+      animation: DotFly4 26s linear alternate infinite,
+         glow 4s infinite;
+      animation-delay: 0s;
+    }
+ 
+    .dot5 {
+      animation: DotFly5 28s linear alternate infinite,
+         glow 4s infinite;
+    }
+ 
+    .dot6 {
+      animation: DotFly6 23s linear alternate infinite,
+        glow 4s infinite;
+      animation-delay: 6s;
+    }
+
+    .dot7 {
+      animation: DotFly7 20s linear alternate infinite,
+        glow 4s infinite;
+      animation-delay: 0s;
+    }
+  </style>
+
+<div class="dot_container">
+    <div class="dot_container-relative">
+      <a class="dot dot1" id="dot1" href="./weather"></a><div class="dot dot2"></div><div
+        class="dot dot3"
+      >
+      </div><div class="dot dot4"></div><div class="dot dot5"></div><div class="dot dot6"></div><div class="dot dot7"></div>
+    </div>
+    
+  </div>
+  
+  
