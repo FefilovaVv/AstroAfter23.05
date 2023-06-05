@@ -86,7 +86,6 @@ position: absolute;
 font-size: 4.2rem;
 margin: 0;
 background: linear-gradient(rgb(119,43,134) , #86b1c1 40%, #c9f0ff 80%);
-height: 860px;
 width: 116px;
 line-height: 116px;
 color: white;
@@ -148,11 +147,14 @@ border-color: #539ebc;}
 </style>
 
 <main>
-    <div id="hiddenGame"  class="hide"> <WeatherGame/></div>
+    <div id="hiddenGame"  class="hide">  <p style="height: 650px;" class="p-vertical p-vertical-weather">ПОГОДА<span class="span-vertical">МЕ</span></p>
+        <p style="height: 650px;" class="p-vertical p-vertical-dream">МЕЧТЫ<span class="span-vertical">ПОГ</span></p>
+        <WeatherGame/></div>
    
-        <p class="p-vertical p-vertical-weather">ПОГОДА<span class="span-vertical">МЕЧТЫ</span></p>
-        <p class="p-vertical p-vertical-dream">МЕЧТЫ<span class="span-vertical">ПОГОДА</span></p>
+       
         <div id="hideAfter">
+            <p style="height: 880px;" class="p-vertical p-vertical-weather" >ПОГОДА<span class="span-vertical">МЕЧТЫ</span></p>
+            <p style="height: 880px;" class="p-vertical p-vertical-dream">МЕЧТЫ<span class="span-vertical">ПОГОДА</span></p>
         <div class="form-container">
         <h2 class="question">Если бы ты был гражданином нашего мира и мог бы вместе с нами голосовать за погоду по утрам, <span class="span-question">какую погоду</span> ты бы предпочитал <span class="span-question">большую часть времени?</span> </h2>
         <form id="surveyForm">
