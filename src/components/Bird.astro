@@ -1,0 +1,114 @@
+<!-- <script>
+    
+
+    let birdPositionCurrent = null;
+    let birdPositionBuffer = null;
+    let birdPosition = null;
+    let birdImg = document.getElementById("bird-img");
+
+ document.addEventListener("mousemove", function (event) {
+     let birdImgRect = birdImg.getBoundingClientRect();
+     let mouseX = event.clientX;
+     let birdImgX = birdImgRect.left;
+        if (mouseX < birdImgX) {
+            // справа
+            birdPositionCurrent = true;
+        } else if (mouseX > birdImgX) {
+            // слева
+            birdPositionCurrent = false;
+        } else {
+            birdPositionCurrent = null;
+        };
+        function (birdPositionCurrent){ 
+            if(birdPositionCurrent===birdPositionBuffer){birdPosition = true;}
+        }
+        // if(birdPosition==false) {birdImg.classList.add('flip');}
+        // else if (birdPosition==true) {birdImg.classList.toggle('flip');}
+        veiwResult.textContent = `1: ${mouseX}, 2: ${birdImg}, 3: ${birdPositionCurrent}, 4: ${birdPositionBuffer}`; -->
+<script>
+    // черновое, чтобы отслеживать на каком у меня этапе и что поламалось, если ломается:)
+    const veiwResult = document.getElementById("veiw-result");
+    const veiwResult2 = document.getElementById("veiw-result2");
+
+    let birdPosition = null;
+    const birdImg = document.getElementById("bird-img");
+
+    document.addEventListener("mousemove", function (event) {
+        let birdImgRect = birdImg.getBoundingClientRect();
+        let mouseX = event.clientX;
+        let birdImgX = birdImgRect.left;
+        birdPosition =
+            mouseX < birdImgX ? true : mouseX > birdImgX ? false : null;
+
+        if (birdPosition === false) {
+            birdImg.classList.add("flip");
+        } else if (birdPosition === true) {
+            birdImg.classList.remove("flip");
+        }
+        veiwResult.textContent = `1: ${mouseX}, 2: ${birdPosition}`;
+    });
+
+    //  function getBirdWalkTranslateXValue - писал чисто GPT, потому что сама я головой та ки не дошла как сделать атк чтобы на каждый клик translateX изменялось на 100px и я не разбиралась в ней. Но все остальное обьяснить могу:)
+    function getBirdWalkTranslateXValue(transformValue) {
+        const match = transformValue.match(/translateX\((-?\d+)px\)/);
+        return match ? parseInt(match[1]) : 0;
+    }
+
+    document.addEventListener("click", function (event) {
+        const birdWalk = document.getElementById("bird-walk");
+        const birdWalkRect = birdWalk.getBoundingClientRect();
+        const birdContainerRect = document
+            .getElementById("bird-container")
+            .getBoundingClientRect();
+        let currentTranslateX = getBirdWalkTranslateXValue(
+            birdWalk.style.transform
+        );
+        if (birdPosition === false) {
+            if (birdWalkRect.left <= birdContainerRect.width) {
+                currentTranslateX += 100;
+                birdWalk.style.transform = `translateX(${currentTranslateX}px)`;
+            }
+        } else if (birdPosition === true) {
+            if (birdWalkRect.left > birdContainerRect.left + 150) {
+                currentTranslateX -= 100;
+                birdWalk.style.transform = `translateX(${currentTranslateX}px)`;
+            }
+        }
+        veiwResult2.textContent = `0: ${birdWalkRect.x},1: ${birdContainerRect.left}, 2: ${birdContainerRect.width}, 3: ${birdWalk.style.transform}`;
+    });
+</script>
+
+<style>
+    #bird-img {
+        width: 150px;
+    }
+    .flip {
+        transform: scaleX(-1);
+    }
+    #bird-walk {
+        transition: 2s;
+    }
+    /* #bird-walk.right{transform: translateX(100px);}
+    #bird-walk.left{transform: translateX(-100px);} */
+
+    #bird-container {
+        height: 500px;
+        width: 700px;
+        display: block;
+    }
+    #veiw-result {
+        width: 400px;
+    }
+    #bird-walk {
+        position: absolute;
+    }
+</style>
+
+<div id="bird-container">
+    <div id="bird-walk">
+        <img id="bird-img" src="bird.svg" alt="птица" />
+
+        <p id="veiw-result"></p>
+        <p id="veiw-result2"></p>
+    </div>
+</div>

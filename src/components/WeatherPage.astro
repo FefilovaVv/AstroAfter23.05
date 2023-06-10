@@ -1,3 +1,7 @@
+---
+import WeatherGame from "../components/WeatherGame.astro";
+---
+
 <!-- <h4>Если бы вы были гражданином нашего мира и могли бы вместе с нами голосовать за погоду по утрам, какую погоду вы бы предпочитали большую часть своего времени?</h4>
  Температура
     Облачно,ясно
@@ -5,10 +9,7 @@
     Жить все время в лете, зиме, осене, весне, либо чтобы была обычная смена сезонов</h4> 
 
 погода мечты по горизонталям-->
----
-import WeatherGame from "../components/WeatherGame.astro";
----
-
+<!-- . -->
 <script>
     const surveyForm = document.getElementById("surveyForm");
     const showAnswersButton = document.getElementById("showAnswersButton");
@@ -48,60 +49,72 @@ import WeatherGame from "../components/WeatherGame.astro";
 
 <script>
     const nextPage = document.getElementById("nextPage");
-    const hiddenGame = document.getElementById("hiddenGame")
-    const hideAfter = document.getElementById("hideAfter")
-    nextPage.addEventListener("click", ()=> {
-        hiddenGame.classList.toggle("hide")
-        hideAfter.classList.toggle("hide")
-    })
+    const hiddenGame = document.getElementById("hiddenGame");
+    const hideAfter = document.getElementById("hideAfter");
+    nextPage.addEventListener("click", () => {
+        hiddenGame.classList.toggle("hide");
+        hideAfter.classList.toggle("hide");
+    });
 </script>
 
-
 <style>
-    .hide{display: none;}
-    main{position: relative;}
-  
+    .hide {
+        display: none;
+    }
+    main {
+        position: relative;
+    }
+
     .form-container {
         display: flex;
         align-items: center;
         flex-direction: column;
-        
     }
 
-    .question{font-size: 1.3rem;
-    padding: 10px 15px;
-    width: 600px;
-text-align: center;
-margin-bottom: 30px;
-}
+    .question {
+        font-size: 1.3rem;
+        padding: 10px 15px;
+        width: 600px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
-.span-question{color: rgb(251,221,157);
-    background-color: #3488a8;
-padding: 1px 3px;
-border-radius: 5px;}
+    .span-question {
+        color: rgb(251, 221, 157);
+        background-color: #3488a8;
+        padding: 1px 3px;
+        border-radius: 5px;
+    }
 
-.p-vertical{writing-mode: vertical-rl;
-text-orientation: upright;
-position: absolute;
-font-size: 4.2rem;
-margin: 0;
-background: linear-gradient(rgb(119,43,134) , #86b1c1 40%, #c9f0ff 80%);
-width: 116px;
-line-height: 116px;
-color: white;
-font-weight: bold;
-padding-top: 25px;
-opacity: 0.8;
-}
-.span-vertical{text-orientation: sideways-right;
-    letter-spacing: 1.2rem;
-padding-top: 40px;}
+    .p-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        position: absolute;
+        font-size: 4.2rem;
+        margin: 0;
+        background: linear-gradient(
+            rgb(119, 43, 134),
+            #86b1c1 40%,
+            #c9f0ff 80%
+        );
+        width: 116px;
+        line-height: 116px;
+        color: white;
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        bottom: 25px;
+        opacity: 0.8;
+    }
 
-.p-vertical-weather{top: -40px;
-    left: -40px;}
-.p-vertical-dream{
-    top: -40px;
-    right: -40px;}
+    .p-vertical-weather {
+        top: -20px;
+        left: -40px;
+    }
+    .p-vertical-dream {
+        top: -20px;
+        right: -40px;
+    }
     form {
         display: flex;
         align-items: flex-start;
@@ -114,89 +127,162 @@ padding-top: 40px;}
     }
     option {
     }
-    .container{  display: flex;
+    .container {
+        display: flex;
         align-items: flex-start;
         flex-direction: column;
-        background-color: rgb(251,221,157);
+        background-color: rgb(251, 221, 157);
         padding: 10px 15px;
         border-radius: 10px 10px 10px 0;
         border-bottom: 5px solid #c9f0ff;
         border-left: 5px solid #3488a8;
     }
-    h3{ font-size: 1.3rem;
-    margin: 0;
-    width: 240px;
-    color: black;
-    border-radius: 8px;}
+    h3 {
+        font-size: 1.3rem;
+        margin: 0;
+        width: 240px;
+        color: black;
+        border-radius: 8px;
+    }
 
-    .p-label{margin: 5px 0 10px;}
+    .p-label {
+        margin: 5px 0 10px;
+    }
 
-    input, select{border-radius: 6px;}
-    .submit {background-color: rgb(119,43,134);
+    input,
+    select {
+        border-radius: 6px;
+    }
+    .submit {
+        background-color: rgb(119, 43, 134);
         border-radius: 18px;
         padding: 10px 16px;
         font-size: 1rem;
-    align-self: center;
-color: white;
-font-weight: bold;
-border-color: #539ebc;}
-.submit:hover {cursor: pointer;}
-    button {align-self: center;
-    background-color: #3488a8;}
-
+        align-self: center;
+        color: white;
+        font-weight: bold;
+        border-color: #539ebc;
+    }
+    .submit:hover {
+        cursor: pointer;
+    }
+    button {
+        align-self: center;
+        background-color: #3488a8;
+    }
 </style>
 
 <main>
-    <div id="hiddenGame"  class="hide">  <p style="height: 650px;" class="p-vertical p-vertical-weather">ПОГОДА<span class="span-vertical">МЕ</span></p>
-        <p style="height: 650px;" class="p-vertical p-vertical-dream">МЕЧТЫ<span class="span-vertical">ПОГ</span></p>
-        <WeatherGame/></div>
-   
-       
-        <div id="hideAfter">
-            <p style="height: 880px;" class="p-vertical p-vertical-weather" >ПОГОДА<span class="span-vertical">МЕЧТЫ</span></p>
-            <p style="height: 880px;" class="p-vertical p-vertical-dream">МЕЧТЫ<span class="span-vertical">ПОГОДА</span></p>
+    <div id="hiddenGame" class="hide">
+        <p class="p-vertical p-vertical-weather">ПОГОДАМЕ</p>
+        <p class="p-vertical p-vertical-dream">МЕЧТЫПО</p>
+        <WeatherGame />
+    </div>
+
+    <div id="hideAfter">
+        <p class="p-vertical p-vertical-weather">ПОГОДАМЕЧТЫ</p>
+        <p class="p-vertical p-vertical-dream">МЕЧТЫПОГОДА</p>
         <div class="form-container">
-        <h2 class="question">Если бы ты был гражданином нашего мира и мог бы вместе с нами голосовать за погоду по утрам, <span class="span-question">какую погоду</span> ты бы предпочитал <span class="span-question">большую часть времени?</span> </h2>
-        <form id="surveyForm">
-            <div class="name-container container"><label for="nameImput"><h3>Твое имя:</h3> <br></label>
-                <input type="text" name="name" id="nameImput" /></div>
-            <div class="temperature-container container"><label for="temperatureSelect"
-                ><h3>Температура</h3> <p class="p-label">Какая температура для тебя наиболее комфортна?</p> </label>
-            <select id="temperatureSelect">
-                <option value="от -10 до 0">от -10 до 0</option>
-                <option value="от 0 до +15">от 0 до +15</option>
-                <option value="от +10 до +20">от +10 до +20</option>
-                <option value="от +15 до +25">от +15 до +25</option>
-                <option value="от +20 до +25">от +20 до +25</option>
-                <option value="от +25 до +35">от +25 до +35</option>
-                <option value="больше +35">больше +35</option>
-            </select></div>
-            <div class="clouds-container container"> <label for="cloudsRadio"><h3>Количество солнца</h3>  <p class="p-label"> Тебе бы хотелось, чтобы большую часть времени
-                было:</p>  </label>
-                <div class="wrapRadio"> <input type="radio" id="cloudsYes" name="clouds" value="Облачно" required/> Облачно
-                    <input type="radio" id="cloudsNo" name="clouds" value="Ясно" /> Ясно</div></div>
-            <div class="humidity-container container">  <label for="humidityRadio"><h3>Влажность</h3>  <p class="p-label"> Тебе бы хотелось, чтобы большую часть времени было:</p> </label>
-                <div class="wrapRadio">     <input type="radio" id="humidityYes" name="humidity" value="Дождливо/Влажно"/> Дождливо/Влажно
-                    <input type="radio" id="humidityNo" name="humidity" value="Сухо" /> Сухо</div>
-           </div>
-            <div class="season-container container">
-                <label for="seasonSelect"><h3>Cезон</h3> <p class="p-label"> В каком сезоне тебе бы хотелось проживать большую часть времени?</p> </label>
-                <select id="seasonSelect">
-                    <option value="Лето">Лето</option>
-                    <option value="Осень">Осень</option>
-                    <option value="Весна">Весна</option>
-                    <option value="Зима">Зима</option>
-                    <option value="С обычной сменой сезонов">С обычной сменой сезонов</option>
-                </select></div>
-    
-            <button type="submit" class="submit">Тык для сохранения</button>
-            <!-- <button id="showAnswersButton">Покажи мне мои ответы</button> -->
-            <button class="submit" id="nextPage">След страница</button>
-        </form>
-    
-        
-        <div id="answersContainer"></div></div></div>
+            <h2 class="question">
+                Если бы ты был гражданином нашего мира и мог бы вместе с нами
+                голосовать за погоду по утрам, <span class="span-question"
+                    >какую погоду</span
+                > ты бы предпочитал <span class="span-question"
+                    >большую часть времени?</span
+                >
+            </h2>
+            <form id="surveyForm">
+                <div class="name-container container">
+                    <label for="nameImput"><h3>Твое имя:</h3> <br /></label>
+                    <input type="text" name="name" id="nameImput" />
+                </div>
+                <div class="temperature-container container">
+                    <label for="temperatureSelect"
+                        ><h3>Температура</h3>
+                        <p class="p-label">
+                            Какая температура для тебя наиболее комфортна?
+                        </p>
+                    </label>
+                    <select id="temperatureSelect">
+                        <option value="от -10 до 0">от -10 до 0</option>
+                        <option value="от 0 до +15">от 0 до +15</option>
+                        <option value="от +10 до +20">от +10 до +20</option>
+                        <option value="от +15 до +25">от +15 до +25</option>
+                        <option value="от +20 до +25">от +20 до +25</option>
+                        <option value="от +25 до +35">от +25 до +35</option>
+                        <option value="больше +35">больше +35</option>
+                    </select>
+                </div>
+                <div class="clouds-container container">
+                    <label for="cloudsRadio"
+                        ><h3>Количество солнца</h3>
+                        <p class="p-label">
+                            Тебе бы хотелось, чтобы большую часть времени было:
+                        </p>
+                    </label>
+                    <div class="wrapRadio">
+                        <input
+                            type="radio"
+                            id="cloudsYes"
+                            name="clouds"
+                            value="Облачно"
+                            required
+                        /> Облачно
+                        <input
+                            type="radio"
+                            id="cloudsNo"
+                            name="clouds"
+                            value="Ясно"
+                        /> Ясно
+                    </div>
+                </div>
+                <div class="humidity-container container">
+                    <label for="humidityRadio"
+                        ><h3>Влажность</h3>
+                        <p class="p-label">
+                            Тебе бы хотелось, чтобы большую часть времени было:
+                        </p>
+                    </label>
+                    <div class="wrapRadio">
+                        <input
+                            type="radio"
+                            id="humidityYes"
+                            name="humidity"
+                            value="Дождливо/Влажно"
+                        /> Дождливо/Влажно
+                        <input
+                            type="radio"
+                            id="humidityNo"
+                            name="humidity"
+                            value="Сухо"
+                        /> Сухо
+                    </div>
+                </div>
+                <div class="season-container container">
+                    <label for="seasonSelect"
+                        ><h3>Cезон</h3>
+                        <p class="p-label">
+                            В каком сезоне тебе бы хотелось проживать большую
+                            часть времени?
+                        </p>
+                    </label>
+                    <select id="seasonSelect">
+                        <option value="Лето">Лето</option>
+                        <option value="Осень">Осень</option>
+                        <option value="Весна">Весна</option>
+                        <option value="Зима">Зима</option>
+                        <option value="С обычной сменой сезонов"
+                            >С обычной сменой сезонов</option
+                        >
+                    </select>
+                </div>
 
+                <button type="submit" class="submit">Тык для сохранения</button>
+                <!-- <button id="showAnswersButton">Покажи мне мои ответы</button> -->
+                <button class="submit" id="nextPage">След страница</button>
+            </form>
 
-
+            <div id="answersContainer"></div>
+        </div>
+    </div>
 </main>
