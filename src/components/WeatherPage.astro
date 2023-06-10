@@ -1,7 +1,3 @@
----
-import WeatherGame from "../components/WeatherGame.astro";
----
-
 <!-- <h4>Если бы вы были гражданином нашего мира и могли бы вместе с нами голосовать за погоду по утрам, какую погоду вы бы предпочитали большую часть своего времени?</h4>
  Температура
     Облачно,ясно
@@ -9,7 +5,6 @@ import WeatherGame from "../components/WeatherGame.astro";
     Жить все время в лете, зиме, осене, весне, либо чтобы была обычная смена сезонов</h4> 
 
 погода мечты по горизонталям-->
-<!-- . -->
 <script>
     const surveyForm = document.getElementById("surveyForm");
     const showAnswersButton = document.getElementById("showAnswersButton");
@@ -35,28 +30,27 @@ import WeatherGame from "../components/WeatherGame.astro";
             humidity: humidity,
             season: season,
         };
-        showAnswersButton.dataset.surveyFormData = JSON.stringify(
-            Object.values(surveyFormData)
-        );
+        // showAnswersButton.dataset.surveyFormData = JSON.stringify(
+        //     Object.values(surveyFormData)
+        // );
     });
-    showAnswersButton.addEventListener("click", function () {
-        const surveyFormData = JSON.parse(
-            showAnswersButton.dataset.surveyFormData || "{}"
-        );
-        answersContainer.textContent = JSON.stringify(surveyFormData, null, 2);
-    });
+    // // showAnswersButton.addEventListener("click", function () {
+    // //     const surveyFormData = JSON.parse(
+    // //         showAnswersButton.dataset.surveyFormData || "{}"
+    // //     );
+    // //     answersContainer.textContent = JSON.stringify(surveyFormData, null, 2);
+    // });
 </script>
 
-<script>
+<!-- <script>
     const nextPage = document.getElementById("nextPage");
     const hiddenGame = document.getElementById("hiddenGame");
     const hideAfter = document.getElementById("hideAfter");
-    nextPage.addEventListener("click", () => {
-        hiddenGame.classList.toggle("hide");
-        hideAfter.classList.toggle("hide");
-    });
-</script>
-
+    // nextPage.addEventListener("click", () => {
+    //     hiddenGame.classList.toggle("hide");
+    //     hideAfter.classList.toggle("hide");
+    // });
+</script> -->
 <style>
     .hide {
         display: none;
@@ -162,6 +156,7 @@ import WeatherGame from "../components/WeatherGame.astro";
         color: white;
         font-weight: bold;
         border-color: #539ebc;
+        text-decoration: none;
     }
     .submit:hover {
         cursor: pointer;
@@ -173,11 +168,11 @@ import WeatherGame from "../components/WeatherGame.astro";
 </style>
 
 <main>
-    <div id="hiddenGame" class="hide">
+    <!-- <div id="hiddenGame" class="hide">
         <p class="p-vertical p-vertical-weather">ПОГОДАМЕ</p>
         <p class="p-vertical p-vertical-dream">МЕЧТЫПО</p>
-        <WeatherGame />
-    </div>
+       
+    </div> -->
 
     <div id="hideAfter">
         <p class="p-vertical p-vertical-weather">ПОГОДАМЕЧТЫ</p>
@@ -279,10 +274,10 @@ import WeatherGame from "../components/WeatherGame.astro";
 
                 <button type="submit" class="submit">Тык для сохранения</button>
                 <!-- <button id="showAnswersButton">Покажи мне мои ответы</button> -->
-                <button class="submit" id="nextPage">След страница</button>
+                <a class="submit" href="./gameForWeather">След страница</a>
             </form>
 
-            <div id="answersContainer"></div>
+            <!-- <div id="answersContainer"></div> -->
         </div>
     </div>
 </main>
