@@ -8,6 +8,7 @@
      .snow-wrap{margin-left: -40px;} -->
 
      <script>
+      
         const snowdrifts = document.querySelectorAll('.snowdrift');
         let timeoutId;
         snowdrifts.forEach((snowdrift) => {
@@ -52,7 +53,7 @@ main{position: relative;
     top: 150px;
 left: 170px;}
 .snow-wrap{ position: absolute;
-bottom: 0;
+bottom: -50px;
 left: 70px;
 pointer-events: none;}
 .span-question{color: rgb(251,221,157);
@@ -80,7 +81,8 @@ border-radius: 5px;}
 }
 
 .snowdrift-lowPart{margin-top: -5px;
-margin-left: 6px;}
+margin-left: 6px;
+}
 .snowdrift-start{ display: inline-block;
         background: linear-gradient(to bottom, #c9f0ff, #c9f0ff);
         width: 40px;
@@ -182,9 +184,9 @@ z-index: 2;}
     background-color: black;
     border: 1px solid black;}
 .key{position: absolute;
-width: 60px;
-bottom: 6px;
-right: 250px;
+  width: 60px;
+bottom: -40px;
+right: 230px;
 transition: transform 1s;
 }
 .key.hover {
@@ -220,7 +222,7 @@ z-index: 1;
     transform: rotate(260deg);
   }
   100% {
-    transform:  translateY(-272px) translateX(88px);;
+    transform:  translateY(-320px) translateX(65px);
   }
 } 
 #entrance{color: white;

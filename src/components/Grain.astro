@@ -1,0 +1,115 @@
+---
+import Bird from "../components/Bird.astro";
+---
+
+<!--  
+          const falling = () => {
+                grainDiv.classList.add("grain_grain", "falling");
+            };
+            
+            falling(); 
+        
+         const allGrains = document.querySelectorAll(".grain_grain");
+            allGrains.forEach(function (element) {
+                allGrains.style.left = event.clientX + "px";
+            });
+             const secondChild = document.querySelector(
+                                ".grain_grain.falling:nth-child(2n + 1)"
+                            );
+                            secondChild.style.transform =
+                                "translate(" +
+                                50 +
+                                "px," +
+                                distanceBetweenGrainAndFloor +
+                                "px" +
+                                ")";
+        -->
+<script>
+    //   найти х и у мышки
+
+    //  вставить их в top right
+    const veiwResultGrain = document.getElementById("veiw-result-Grain");
+
+    
+    document.addEventListener("click", function (event) {
+        for (let i = 0; i < 3; i++) {
+            const grainDiv = document.createElement("div");
+            const birdContainer = document.getElementById("bird-walk");
+            const distanceFromContainerToLeft =
+            document.getElementById("main").offsetLeft;
+            const distanceBetweenGrainAndFloor =
+                birdContainer.offsetTop +
+                birdContainer.offsetHeight -
+                event.clientY -10 ;
+            grainDiv.style.left = event.clientX -distanceFromContainerToLeft +"px";
+            grainDiv.style.top = event.clientY + "px";
+
+            if (distanceBetweenGrainAndFloor > 10) {
+                const section = document.getElementById("grain_section");
+                section.appendChild(grainDiv);
+
+                setTimeout(() => {
+                    const falling = () => {
+                        const randomX = Math.floor(Math.random() * 21) - 10;
+                        grainDiv.classList.add("grain_grain", "falling");
+                        grainDiv.style.transform =
+                            "translate(" +
+                            randomX +
+                            "px," +
+                            distanceBetweenGrainAndFloor +
+                            "px" +
+                            ")";
+                    };
+                    falling();
+                }, 0);
+            }
+            // veiwResultGrain.textContent = `1: ${event.clientX}, 2: ${event.clientY} 3: ${
+            //     birdContainer.offsetTop
+            // },  4: ${
+            //     birdContainer.offsetHeight
+            // }, 5: ${distanceFromContainerToLeft}`;
+        }
+    });
+</script>
+
+<style is:global>
+    .grain_grain {
+        position: absolute;
+        background-color: rgb(183, 170, 32);
+        width: 6px;
+        height: 4px;
+        border-radius: 20px 80px;
+        border: 1px solid rgb(163, 115, 26);
+    }
+    .grain_grain.falling {
+    }
+    .grain_grain.falling:nth-child(1n + 1) {
+        transition: transform 0.5s linear;
+    }
+    .grain_grain.falling:nth-child(2n + 1) {
+        transition: transform 0.7s linear;
+        border-radius: 50px 30px;
+    }
+    .grain_grain.falling:nth-child(3n + 1) {
+        transition: transform 0.9s linear;
+    }
+</style>
+
+<style>
+    section {
+        /* position: relative; */
+        height: 100px;
+    }
+    .grain_bird-container {
+        display: inline;
+    }
+</style>
+
+<section id="grain_section">
+    <p id="veiw-result-Grain"></p>
+</section>
+
+<!-- section.insertAdjacentHTML("afterbegin",'<div class="Grain_grain">привет</div>');
+grainDiv.style.backgroundColor = 'red'; -->
+
+<Bird />
