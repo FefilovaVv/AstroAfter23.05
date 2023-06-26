@@ -1,0 +1,218 @@
+<script>
+    const surveyFormAnimals = document.getElementById("survey_form-animals");
+    const animalsShowAnswersContainer = document.getElementById("animalsShowAnswersContainer");
+    let surveyFormAnimalsResult;
+    // const animalsSurvey = addEventListener('click', function =>{})
+
+    surveyFormAnimals.addEventListener("submit", function (event) {
+        surveyFormAnimalsResult = JSON.stringify(
+            document.querySelector('input[name="animals"]:checked').value
+        );
+        localStorage.setItem(
+            "surveyFormAnimalsResult",
+            surveyFormAnimalsResult
+        );
+        animalsShowAnswersContainer.textContent = `2:${JSON.stringify(
+            surveyFormAnimalsResult
+        )}`;
+    });
+
+
+const resultContainerAnimals = document.getElementById('animalsShowAnswersContainer');
+const storedResultsAnimals = localStorage.getItem('surveyFormAnimalsResult');
+const resultsAnimals = JSON.stringify('storedResultsAnimals');
+resultContainerAnimals.textContent = `✓${storedResultsAnimals.replace(/"/g, '')}`;
+function hideResultContainerAnimals (){
+    resultContainerAnimals.classList.toggle('hide')
+}
+setTimeout(hideResultContainerAnimals, 3000)
+
+</script>
+
+<style>
+    .survey_title-main {
+        font-size: 1.8rem;
+        text-align: center;
+        margin: auto;
+        border-bottom: 3px solid #3488a8;
+        width: 360px;
+        margin-bottom: 40px;
+        padding-bottom: 5px;
+    }
+    .survey_title-animals {
+        margin: 0;
+    }
+    .survey_wrap-flex {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 10px;
+    }
+    .survey_wrap-animal {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 20%;
+        justify-content: space-between;
+        background-color: rgb(251, 221, 157);
+        padding: 20px;
+        border: 3px solid #c9f0ff;
+        border-bottom: none;
+    }
+
+    .survey_image.dragon {
+        width: 170px;
+    }
+    .survey_image.cat {
+        width: 150px;
+    }
+    .survey_image.horse {
+        width: 190px;
+    }
+    .survey_image.bird {
+        width: 180px;
+    }
+
+    .survey_animals-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+        border: 3px solid #c9f0ff;
+    }
+    .survey_question {
+        color: white;
+        border-bottom: 3px solid #c9f0ff;
+        padding-bottom: 5px;
+    }
+    .survey_labelText {
+        display: inline;
+        color: white;
+        /* background-color: rgb(251, 221, 157); */
+        background: linear-gradient(
+            to right,
+            rgb(119, 43, 134) 30%,
+            transparent
+        );
+        padding: 5px;
+        border-radius: 0 10px 10px 0;
+    }
+    .survey_submit {
+        display: block;
+        color: white;
+        font-size: 1rem;
+        font-weight: bolder;
+        padding: 10px 16px;
+        font-size: 1rem;
+        margin: 20px auto;
+        /* border: 1px solid white; */
+        background-color: rgb(119, 43, 134);
+    }
+    .survey_submit:hover {
+        cursor: pointer;
+    }
+    #animalsShowAnswersContainer{background-color: greenyellow;
+   text-align: center;
+   margin: 20px auto;
+   width: 180px;
+   padding: 12px;}
+   .hide{display: none;}
+</style>
+
+<section>
+    <h2 class="survey_title-main">У нас любят заводить зверушек для души</h2>
+
+    <div class="survey_wrap-flex">
+        <div class="survey_wrap-animal">
+            <div>
+                <h3 class="survey_title-animals">Дракончики</h3>
+                <p class="survey_text">
+                    Они сууупер быстрые, большшые и красивые. Любят
+                    путешествовать и перемещаться, домчат вас хоть на край света
+                </p>
+            </div>
+            <img class="survey_image dragon" src="dragon.svg" alt="дракон" />
+        </div>
+        <div class="survey_wrap-animal">
+            <div>
+                <h3 class="survey_title-animals">Котик-фамильяр</h3>
+                <p class="survey_text">
+                    Умные и самодостаточные. Возможно придут к вам под бочек
+                    просить ласки и слушать про ваш тяжелый день. А возможно
+                    будут тусить где-нибудь со своей кошатской бандой, неделями
+                    не появляясь дома.
+                </p>
+            </div>
+            <img class="survey_image cat" src="cat.svg" alt="кошечка" />
+        </div>
+
+        <div class="survey_wrap-animal">
+            <div>
+                <h3 class="survey_title-animals">Лошадь</h3>
+                <p class="survey_text">
+                    Обычные лошади. На них можно кататься :) и за ними нужно
+                    ухаживать. Занимают много места.
+                </p>
+            </div>
+            <img class="survey_image horse" src="horse.svg" alt="лошадь" />
+        </div>
+        <div class="survey_wrap-animal">
+            <div>
+                <h3 class="survey_title-animals">Птичка-фамильяр</h3>
+                <p class="survey_text">
+                    Глупенькие, но такие милые. Любят поболтать и с
+                    удовольствием составят вам в этом компанию. Можно их
+                    отправлять по мелким поручениям.
+                </p>
+            </div>
+            <img class="survey_image bird" src="birdThick.svg" alt="птичка" />
+        </div>
+    </div>
+
+    <form id="survey_form-animals">
+        <div class="survey_animals-container container">
+            <label for="animalsRadio"
+                ><h2 class="survey_question">А кого выбрал бы ты?</h2></label
+            >
+            <div>
+                <div class="wrapRadio">
+                    <input
+                        type="radio"
+                        id="animalsDragon"
+                        name="animals"
+                        value="Дракончик"
+                        required
+                    />
+                    <p class="survey_labelText">Дракончика</p>
+                    <input
+                        type="radio"
+                        id="animalsCat"
+                        name="animals"
+                        value="Котик-фамильяр"
+                    />
+                    <p class="survey_labelText">Котика-фамильяра</p>
+                    <input
+                        type="radio"
+                        id="animalsHorse"
+                        name="animals"
+                        value="Лошадь"
+                        required
+                    />
+                    <p class="survey_labelText">Лошадь</p>
+                    <input
+                        type="radio"
+                        id="animalsBird"
+                        name="animals"
+                        value="Птичка-фамильяр"
+                    />
+                    <p class="survey_labelText">Птичку-фамильяра</p>
+                </div>
+                <button class="survey_submit" type="submit" class="submit"
+                    >Тык для сохранения</button
+                >
+                <p  id="animalsShowAnswersContainer"></p>
+            </div>
+          
+        </div>
+    </form>
+ 
+</section>

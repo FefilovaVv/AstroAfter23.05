@@ -1,89 +1,9 @@
-<!-- 
-
 
 <script>
     // черновое, чтобы отслеживать на каком у меня этапе и что поламалось, если ломается:)
     const veiwResult = document.getElementById("veiw-result");
     const veiwResult2 = document.getElementById("veiw-result2");
-
-    let birdPosition = null;
-    const birdImg = document.getElementById("bird-img");
-    
-
-    document.addEventListener("click", function (event) {
-        let birdImgRect = birdImg.getBoundingClientRect();
-         let mouseX = event.clientX;
-         let birdImgX = birdImgRect.left;
-        birdPosition =
-            mouseX < birdImgX ? true : mouseX > birdImgX ? false : null;
-        const birdWalk = document.getElementById("bird-walk");
-        const birdWalkRect = birdWalk.getBoundingClientRect();
-        const mainContainerRect = document
-            .getElementById("main")
-            .getBoundingClientRect();
-
-const distanceFromContainerToLeft = document
-            .getElementById("main").offsetLeft;
-        let currentTranslateX ;
-        if (birdPosition === false) {
-            if (birdWalkRect.left <= mainContainerRect.width) {
-                currentTranslateX = mouseX + distanceFromContainerToLeft-40-150;
-                birdWalk.style.transform = `translateX(${currentTranslateX}px)`;
-            }
-        } else if (birdPosition === true) {
-            if (birdWalkRect.left > mainContainerRect.left) {
-                currentTranslateX =  mouseX - distanceFromContainerToLeft-40;
-                birdWalk.style.transform = `translateX(${currentTranslateX}px)`;
-            }
-        }
-        veiwResult2.textContent = `mouseX: ${mouseX},mouseX - birdImgRect.left: ${mouseX - birdImgRect.left}, currentTranslateX: ${currentTranslateX}, birdImgRect.left: ${birdImgRect.left}, distanceFromContainerToLeft: ${distanceFromContainerToLeft}`;
-    });
-</script>
-
-<style>
-    #bird-img {
-        width: 150px;
-        background-color: red;
-        
-
-    }
-    /* .flip {
-        transform: scaleX(-1);
-    } */
-    #bird-walk {
-        display: inline-block;
-        transition: 2s;
-        background-color: yellowgreen;
-    }
-    /* #bird-walk.right{transform: translateX(100px);}
-    #bird-walk.left{transform: translateX(-100px);} */
-
-
-    #veiw-result {
-        width: 400px;
-    }
-  
-</style>
-
-
-    <div id="bird-walk">
-        <img id="bird-img" src="../bird.svg" alt="птица" />
-
-
- 
-   
-</div>
-<p id="veiw-result"></p>
-<p id="veiw-result2"></p>
-
-
-
- -->
-<script>
-    // черновое, чтобы отслеживать на каком у меня этапе и что поламалось, если ломается:)
-    const veiwResult = document.getElementById("veiw-result");
-    const veiwResult2 = document.getElementById("veiw-result2");
-
+    const papa = 'Tolya';
     document.addEventListener("click", function (event) {
         let mouseX;
         let birdPosition = null;
@@ -163,8 +83,8 @@ const distanceFromContainerToLeft = document
         transform-origin: 82% 80%;
     }
     .left {
-        animation: rotateBirdLeft 1s;
-        animation-delay: 1.5s;
+        animation: rotateBirdLeft 1.2s;
+        animation-delay: 1s;
         transform-origin: 18% 80%;
     }
     @keyframes rotateBirdRight {
@@ -173,7 +93,7 @@ const distanceFromContainerToLeft = document
             transform-origin: 82% 80%;
         }
 
-        30% {
+        40% {
             transform: rotate(100deg);
             transform-origin: 65% 60%;
         }
@@ -200,7 +120,7 @@ const distanceFromContainerToLeft = document
     .bottom-line {
         border-top: 1px solid black;
         margin-top: -5px;
-        margin-bottom: 350px;
+       
     }
 </style>
 <div id="bird-walk">

@@ -1,8 +1,7 @@
 ---
 
-import FirstPage from "../components/First Page/FirstPage.astro";
+import ResultsPage from "../components/Results Page/ResultsPage.astro";
 import PageStyle from "../components/PageStyle.astro";
-
 ---
 
 <html lang="en">
@@ -11,11 +10,12 @@ import PageStyle from "../components/PageStyle.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Погода</title>
 	</head>
 	<body>
-		
-		<PageStyle> <FirstPage/></PageStyle>
-		
+		<PageStyle>
+			<ResultsPage />
+			
+		</PageStyle>
 	</body>
 </html>

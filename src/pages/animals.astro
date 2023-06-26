@@ -1,12 +1,8 @@
-
-
 ---
-import Grain from "../components/Grain.astro";
-import Bird from "../components/Bird.astro";
+import Grain from "../components/Animals/Grain.astro";
+import Survey from "../components/Animals/Survey.astro";
 import PageStyle from "../components/PageStyle.astro";
-
 ---
-
 
 <html lang="en">
 	<head>
@@ -17,15 +13,9 @@ import PageStyle from "../components/PageStyle.astro";
 		<title>Погода</title>
 	</head>
 	<body>
-
-        <PageStyle> 
-		<Grain/></PageStyle>
-		
-		
+		<PageStyle>
+			<Survey />
+			<Grain /><a href="./resultsPage">след</a>
+		</PageStyle>
 	</body>
 </html>
-
-
-
-
-

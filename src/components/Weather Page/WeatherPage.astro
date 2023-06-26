@@ -13,7 +13,7 @@
     surveyForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const name = document.getElementById("nameImput").value;
+        const name = document.getElementById("nameInput").value;
         const temperature = document.getElementById("temperatureSelect").value;
         const clouds = document.querySelector(
             'input[name="clouds"]:checked'
@@ -30,6 +30,9 @@
             humidity: humidity,
             season: season,
         };
+        const surveyFormResults = JSON.stringify(surveyFormData);
+        localStorage.setItem('surveyFormWeatherResults', surveyFormResults);
+        answersContainer.textContent = `0: ${ surveyFormResults},}`;
         // showAnswersButton.dataset.surveyFormData = JSON.stringify(
         //     Object.values(surveyFormData)
         // );
@@ -38,7 +41,7 @@
     // //     const surveyFormData = JSON.parse(
     // //         showAnswersButton.dataset.surveyFormData || "{}"
     // //     );
-    // //     answersContainer.textContent = JSON.stringify(surveyFormData, null, 2);
+   
     // });
 </script>
 
@@ -197,8 +200,8 @@
         </h2>
         <form id="surveyForm">
             <div class="name-container container">
-                <label for="nameImput"><h3>Твое имя:</h3> <br /></label>
-                <input type="text" name="name" id="nameImput" />
+                <label for="nameInput"><h3>Твое имя:</h3> <br /></label>
+                <input type="text" name="name" id="nameInput" />
             </div>
             <div class="grid-container">
                 <div class="temperature-container container">
@@ -284,9 +287,9 @@
             </div>
             <button type="submit" class="submit">Тык для сохранения</button>
             <!-- <button id="showAnswersButton">Покажи мне мои ответы</button> -->
-            <a class="submit" href="../gameForWeather">След страница</a>
+            <a class="submit" href="../AstroAfter23.05/gameForWeather">След страница</a>
         </form>
 
-        <!-- <div id="answersContainer"></div> -->
+        <div id="answersContainer">---</div>
     </div>
 </main>
