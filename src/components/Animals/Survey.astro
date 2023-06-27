@@ -2,7 +2,7 @@
 import Grain from "./Grain.astro";
 
 ---
-<!-- <script>
+<script>
     const surveyFormAnimals = document.getElementById("survey_form-animals");
     const animalsShowAnswersContainer = document.getElementById(
         "animalsShowAnswersContainer"
@@ -31,10 +31,10 @@ import Grain from "./Grain.astro";
         "surveyFormAnimalsResult"
     );
     const resultsAnimals = JSON.stringify("storedResultsAnimals");
-    resultContainerAnimals.textContent = `✓${storedResultsAnimals.replace(
-        /"/g,
-        ""
-    )}`;
+    // resultContainerAnimals.textContent = `✓${storedResultsAnimals.replace(
+    //     /"/g,
+    //     ""
+    // )}`;
 
     setTimeout(function hideResultContainerAnimals() {
         // resultContainerAnimals.classList.toggle('hide');
@@ -44,7 +44,7 @@ import Grain from "./Grain.astro";
         resultContainerAnimals.classList.toggle("hide");
         surveySubmitButton.classList.toggle("hide");
     }, 3000);
-</script> -->
+</script>
 
 <style>
     .survey_title-main {
@@ -287,3 +287,5 @@ import Grain from "./Grain.astro";
      
     </form>
 </section>
+<!-- git commit -m "bird does not work 3" 
+git push -u origin main-->
