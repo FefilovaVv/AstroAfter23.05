@@ -35,7 +35,7 @@
         if (birdPosition === false) {
             if (birdWalkRect.left <= mainContainerRect.width) {
                 let currentTranslateX =
-                    mouseX - distanceFromContainerToLeft - 40 - 160;
+                    mouseX - distanceFromContainerToLeft - 40 - 50;
                 birdWalk.style.transform = `translateX(${currentTranslateX}px)`;
                 //   клевание
                 birdRotate.classList.toggle("right");
@@ -46,7 +46,7 @@
         } else if (birdPosition === true) {
             if (birdWalkRect.left > mainContainerRect.left) {
                 let currentTranslateX =
-                    mouseX - distanceFromContainerToLeft - 40 + 20;
+                    mouseX - distanceFromContainerToLeft - 35 + 0;
                 birdWalk.style.transform = `translateX(${currentTranslateX}px) `;
                 //   клевание
                 birdRotate.classList.toggle("left");
@@ -61,7 +61,7 @@
 
 <style>
     #bird-img {
-        width: 150px;
+        width: 40px;
     }
     .flip {
         transform: scaleX(-1);
@@ -69,6 +69,7 @@
     #bird-walk {
         display: inline-block;
         transition: 1.2s;
+        width: 900px;
     }
 
     #veiw-result {
@@ -128,6 +129,6 @@
         <img id="bird-img" src="../bird.svg" alt="птица" />
     </div>
 </div>
-<div class="bottom-line"></div>
+
 <p id="veiw-result"></p>
 <p id="veiw-result2"></p>

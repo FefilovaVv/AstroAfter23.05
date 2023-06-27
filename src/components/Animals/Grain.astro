@@ -40,7 +40,7 @@ import Bird from "./Bird.astro";
             const distanceBetweenGrainAndFloor =
                 birdContainer.offsetTop +
                 birdContainer.offsetHeight -
-                event.clientY -10 ;
+                event.clientY -6 ;
             grainDiv.style.left = event.clientX -distanceFromContainerToLeft +"px";
             grainDiv.style.top = event.clientY + "px";
 
@@ -75,9 +75,9 @@ import Bird from "./Bird.astro";
 <style is:global>
     .grain_grain {
         position: absolute;
-        background-color: rgb(183, 170, 32);
-        width: 6px;
-        height: 4px;
+        background-color: rgb(221, 206, 40);
+        width: 2px;
+        height: 3px;
         border-radius: 20px 80px;
         border: 1px solid rgb(163, 115, 26);
     }
@@ -97,8 +97,7 @@ import Bird from "./Bird.astro";
 
 <style>
     section {
-        /* position: relative; */
-        height: 100px;
+     
     }
     .grain_bird-container {
         display: inline;
