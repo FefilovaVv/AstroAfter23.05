@@ -28,21 +28,18 @@ import Grain from "./Grain.astro";
     );
     const surveySubmitButton = document.getElementById("surveySubmitButton");
     let storedResultsAnimals;
-     storedResultsAnimals = localStorage.getItem(
-        "surveyFormAnimalsResult"
-    );
+    storedResultsAnimals = localStorage.getItem("surveyFormAnimalsResult");
     const resultsAnimals = JSON.stringify("storedResultsAnimals");
     resultContainerAnimals.textContent = `✓${storedResultsAnimals.replace(
         /"/g,
         ""
     )}`;
 
-    setTimeout(function hideResultContainerAnimals() {
-        surveySubmitButton.classList.toggle("hide");
+    setTimeout(function displayResultContainerAnimals() {
+        resultContainerAnimals.classList.add("display");
     }, 0);
-    setTimeout(function hideResultContainerAnimals() {
-        resultContainerAnimals.classList.toggle("hide");
-        surveySubmitButton.classList.toggle("hide");
+    setTimeout(function displayResultContainerAnimals() {
+        resultContainerAnimals.classList.remove("display");
     }, 3000);
 </script>
 
@@ -63,6 +60,7 @@ import Grain from "./Grain.astro";
         display: flex;
         justify-content: space-between;
         column-gap: 5px;
+        height: 345px;
     }
     .survey_wrap-animal {
         position: relative;
@@ -121,13 +119,17 @@ import Grain from "./Grain.astro";
         padding: 5px;
         border-radius: 0 10px 10px 0;
     }
+    .survey_wrap-result{position: relative;
+    height: 60px;}
     .survey_button {
+        position: absolute;
+        left: 176px;
         display: block;
         color: white;
         font-size: 1rem;
         font-weight: bolder;
         padding: 10px 15px;
-        margin: 20px auto 10px auto;
+        margin: 16px 0;
         border-top: 0px solid #c9f0ff;
         border-left: 0px solid #c9f0ff;
         border-right: 0px solid black;
@@ -172,14 +174,16 @@ import Grain from "./Grain.astro";
         border-bottom: 0px solid #c9f0ff;
     }
     #animalsShowAnswersContainer {
+        position: absolute;
+        left: 176px;
         background-color: greenyellow;
         text-align: center;
-        margin: 20px auto;
-        width: 180px;
-        padding: 10px;
+    
+        width: 174px;
+        padding: 9.5px;
     }
-    .hide {
-        display: none;
+    .display {
+        z-index: 1;
     }
     .survey_container-bird {
         margin-bottom: -30px;
@@ -277,13 +281,16 @@ import Grain from "./Grain.astro";
                     />
                     <p class="survey_labelText">Птичку-фамильяра</p>
                 </div>
-                <button
-                    id="surveySubmitButton"
-                    class="survey_button"
-                    type="submit"
-                    class="submit">Тык для сохранения</button
-                >
-                <p id="animalsShowAnswersContainer"></p>
+                <div class="survey_wrap-result">
+                    <p  id="animalsShowAnswersContainer"></p>
+                    <button
+                        id="surveySubmitButton"
+                        class="survey_button"
+                        type="submit"
+                        class="submit">Тык для сохранения</button
+                    >
+                   
+                </div>
                 <a
                     class="survey_next-page"
                     id="surveyButtonNextPage"
@@ -294,5 +301,5 @@ import Grain from "./Grain.astro";
         </div>
     </form>
 </section>
-<!-- git commit -m "bird does not work 3" 
+<!-- git commit -m "bird does not work 6" 
 git push -u origin main-->
