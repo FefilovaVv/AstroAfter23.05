@@ -1,269 +1,582 @@
 <!-- Черновик для всякой всячины 
  -->
+<script>
+  const snowdrifts = document.querySelectorAll(".snowdrift");
+  let timeoutId;
+  snowdrifts.forEach((snowdrift) => {
+    snowdrift.addEventListener("mouseover", () => {
+      snowdrift.classList.add("hover");
+    });
 
-     <script>
-      
-        const snowdrifts = document.querySelectorAll('.snowdrift');
-        let timeoutId;
-        snowdrifts.forEach((snowdrift) => {
-  snowdrift.addEventListener('mouseover', () => {
-    snowdrift.classList.add('hover');
+    snowdrift.addEventListener("mouseover", () => {
+      timeoutId = setTimeout(() => {
+        snowdrift.classList.add("displaynone");
+      }, 1500);
+    });
   });
 
-  snowdrift.addEventListener('mouseover', () => {
+  const key = document.getElementById("key");
+  key.addEventListener("mouseover", () => {
+    key.classList.add("hover");
+  });
+
+  const door = document.getElementById("door");
+  const entrance = document.getElementById("entrance");
+  key.addEventListener("mouseover", () => {
     timeoutId = setTimeout(() => {
-      snowdrift.classList.add('displaynone');
-    }, 1500); 
+      door.classList.add("turnBlack");
+    }, 2200);
   });
-});
-
-const key = document.getElementById ('key');
-key.addEventListener('mouseover', () => {
-    key.classList.add('hover');
-  });
-
-
-    const door = document.getElementById("door")
-    const entrance = document.getElementById("entrance")
-    key.addEventListener("mouseover", ()=> {
-     timeoutId = setTimeout(() => {
-      door.classList.toggle("turnBlack");
-    }, 2200); 
-  });
-  key.addEventListener("mouseover", ()=> {
-     timeoutId = setTimeout(() => {
+  key.addEventListener("mouseover", () => {
+    timeoutId = setTimeout(() => {
       entrance.classList.toggle("hide");
-    }, 4400); 
+    }, 4400);
   });
-    
-     
-     </script>
+</script>
 
 <style>
-main{position: relative;
-    height: 600px;}
- 
-    h2{width: 350px;
-        position: absolute;
+  main {
+    position: relative;
+    height: 600px;
+  }
+
+  h2 {
+    width: 350px;
+    position: absolute;
     top: 150px;
-left: 170px;}
-.snow-wrap{ position: absolute;
-bottom: -50px;
-left: 70px;
-pointer-events: none;}
-.span-question{color: rgb(251,221,157);
-    background-color: #3488a8;
-padding: 1px 3px;
-border-radius: 5px;}
-
-    .snowdrift {
-        display: inline-block;
-        background: linear-gradient(to bottom, #c9f0ff, #c9f0ff);
-        width: 200px;
-        height: 50px;
-        margin-left: -5px;   
-        pointer-events: initial;   
-}
-.snowdrift.hover {
-   
-  background: transparent;
-  animation: fading 4s linear;
-  animation-fill-mode: forwards;
-  cursor: url('../fire.webp'), auto;
-}
-.snowdrift.displaynone {
+    left: 170px;
+  }
+  .snow-wrap {
+    position: absolute;
+    bottom: -50px;
+    left: 70px;
     pointer-events: none;
-}
+  }
+  .span-question {
+    color: rgb(251, 221, 157);
+    background-color: #3488a8;
+    padding: 1px 3px;
+    border-radius: 5px;
+  }
 
-.snowdrift-lowPart{margin-top: -5px;
-margin-left: 6px;
-}
-.snowdrift-start{ display: inline-block;
-        background: linear-gradient(to bottom, #c9f0ff, #c9f0ff);
-        width: 40px;
-        height: 50px;
-        margin-left: 0px;
-        clip-path: path('M0 50 C25 -10, 40 -10, 75 25  L50 52 L0 50 Z');
-        }
-.snowdrift-end{display: inline-block;
-        background: linear-gradient(to bottom, #c9f0ff, #c9f0ff);
-        width: 40px;
-        height: 50px;
-        margin-left: -5px;
-        clip-path: path('M0 0 C25 10, 40 50, 50 50 L50 55 L0 54 Z');
-        }
+  .snowdrift {
+    display: inline-block;
+    background: linear-gradient(to bottom, #c9f0ff, #c9f0ff);
+    width: 200px;
+    height: 50px;
+    margin-left: -5px;
+    pointer-events: initial;
+  }
+  .snowdrift.hover {
+    background: transparent;
+    animation: fading 4s linear;
+    animation-fill-mode: forwards;
+    cursor: url("../fire.webp"), auto;
+  }
+  .snowdrift.displaynone {
+    pointer-events: none;
+  }
 
+  .snowdrift-lowPart {
+    margin-top: -5px;
+    margin-left: 6px;
+  }
+  .snowdrift-start {
+    display: inline-block;
+    background: linear-gradient(to bottom, #c9f0ff, #c9f0ff);
+    width: 40px;
+    height: 50px;
+    margin-left: 0px;
+    clip-path: path("M0 50 C25 -10, 40 -10, 75 25  L50 52 L0 50 Z");
+  }
+  .snowdrift-end {
+    display: inline-block;
+    background: linear-gradient(to bottom, #c9f0ff, #c9f0ff);
+    width: 40px;
+    height: 50px;
+    margin-left: -5px;
+    clip-path: path("M0 0 C25 10, 40 50, 50 50 L50 55 L0 54 Z");
+  }
 
-.snowdrift-1 {
-    clip-path: path('M0 50 C25 20, 40 0, 75 25 C95 40, 110 50, 135 40 C155 30, 170 10, 200 50 L200 100 L0 100 Z');
+  .snowdrift-1 {
+    clip-path: path(
+      "M0 50 C25 20, 40 0, 75 25 C95 40, 110 50, 135 40 C155 30, 170 10, 200 50 L200 100 L0 100 Z"
+    );
     margin-left: 45px;
-}
-.snowdrift-2 {
-    clip-path: path('M0 50 C10 45, 30 35, 50 45 C60 50, 100 0, 125 20 C155 40, 180 10, 200 50 L200 100 L0 100 Z');
-}
-.snowdrift-3 {
-    clip-path: path('M0 50 C25 20, 40 0, 75 25 C95 40, 110 50, 135 40 C155 30, 170 10, 200 50 L200 100 L0 100 Z');
-}
-/* .snowdrift-4 {
+  }
+  .snowdrift-2 {
+    clip-path: path(
+      "M0 50 C10 45, 30 35, 50 45 C60 50, 100 0, 125 20 C155 40, 180 10, 200 50 L200 100 L0 100 Z"
+    );
+  }
+  .snowdrift-3 {
+    clip-path: path(
+      "M0 50 C25 20, 40 0, 75 25 C95 40, 110 50, 135 40 C155 30, 170 10, 200 50 L200 100 L0 100 Z"
+    );
+  }
+  /* .snowdrift-4 {
     clip-path: path('M0 50 C10 45, 30 35, 50 45 C60 50, 100 0, 125 20 C155 40, 180 10, 200 50 L200 100 L0 100 Z');
 } */
-    @keyframes fading {
-        0% {background: linear-gradient(to bottom, rgb(202, 240, 252), rgb(202, 240, 252));}
-        1.96% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.96), rgb(202, 240, 252));}
-  3.92% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.92), rgb(202, 240, 252));}
-  5.88% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.88), rgb(202, 240, 252));}
-  7.84% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.84), rgb(202, 240, 252));}
-  9.8% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.8), rgb(202, 240, 252));}
-  11.76% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.76), rgb(202, 240, 252));}
-  13.72% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.72), rgb(202, 240, 252));}
-  15.68% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.68), rgb(202, 240, 252));}
-  17.64% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.64), rgb(202, 240, 252));}
-  19.6% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.6), rgb(202, 240, 252));}
-  21.56% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.56), rgb(202, 240, 252));}
-  23.52% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.52), rgb(202, 240, 252));}
-  25.48% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.48), rgb(202, 240, 252));}
-  27.44% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.44), rgb(202, 240, 252));}
-  29.4% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.4), rgb(202, 240, 252));}
-  31.36% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.36), rgb(202, 240, 252));}
-  33.32% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.32), rgb(202, 240, 252));}
-  35.28% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.28), rgb(202, 240, 252));}
-  37.24% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.24), rgb(202, 240, 252));}
-  39.2% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.2), rgb(202, 240, 252));}
-  41.16% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.16), rgb(202, 240, 252));}
-  43.12% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.12), rgb(202, 240, 252));}
-  45.08% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.08), rgb(202, 240, 252));}
-  47.04% {background: linear-gradient(to bottom, rgba(202, 240, 252, 0.04), rgb(202, 240, 252));}
-  50% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.96));}
-  52% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.92));}
-  54% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.88));}
-  56% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.84));}
-  58% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.80));}
-  60% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.76));}
-  62% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.72));}
-  64% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.68));}
-  66% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.64));}
-  68% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.60));}
-  70% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.56));}
-  72% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.52));}
-  74% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.48));}
-  76% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.44));}
-  78% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.40));}
-  80% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.36));}
-  82% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.32));}
-  84% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.28));}
-  86% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.24));}
-  88% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.20));}
-  90% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.16));}
-  92% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.12));}
-  94% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.08));}
-98% {background: linear-gradient(to bottom, transparent, rgba(202, 240, 252, 0.04));}
+  @keyframes fading {
+    0% {
+      background: linear-gradient(
+        to bottom,
+        rgb(202, 240, 252),
+        rgb(202, 240, 252)
+      );
+    }
+    1.96% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.96),
+        rgb(202, 240, 252)
+      );
+    }
+    3.92% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.92),
+        rgb(202, 240, 252)
+      );
+    }
+    5.88% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.88),
+        rgb(202, 240, 252)
+      );
+    }
+    7.84% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.84),
+        rgb(202, 240, 252)
+      );
+    }
+    9.8% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.8),
+        rgb(202, 240, 252)
+      );
+    }
+    11.76% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.76),
+        rgb(202, 240, 252)
+      );
+    }
+    13.72% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.72),
+        rgb(202, 240, 252)
+      );
+    }
+    15.68% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.68),
+        rgb(202, 240, 252)
+      );
+    }
+    17.64% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.64),
+        rgb(202, 240, 252)
+      );
+    }
+    19.6% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.6),
+        rgb(202, 240, 252)
+      );
+    }
+    21.56% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.56),
+        rgb(202, 240, 252)
+      );
+    }
+    23.52% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.52),
+        rgb(202, 240, 252)
+      );
+    }
+    25.48% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.48),
+        rgb(202, 240, 252)
+      );
+    }
+    27.44% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.44),
+        rgb(202, 240, 252)
+      );
+    }
+    29.4% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.4),
+        rgb(202, 240, 252)
+      );
+    }
+    31.36% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.36),
+        rgb(202, 240, 252)
+      );
+    }
+    33.32% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.32),
+        rgb(202, 240, 252)
+      );
+    }
+    35.28% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.28),
+        rgb(202, 240, 252)
+      );
+    }
+    37.24% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.24),
+        rgb(202, 240, 252)
+      );
+    }
+    39.2% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.2),
+        rgb(202, 240, 252)
+      );
+    }
+    41.16% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.16),
+        rgb(202, 240, 252)
+      );
+    }
+    43.12% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.12),
+        rgb(202, 240, 252)
+      );
+    }
+    45.08% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.08),
+        rgb(202, 240, 252)
+      );
+    }
+    47.04% {
+      background: linear-gradient(
+        to bottom,
+        rgba(202, 240, 252, 0.04),
+        rgb(202, 240, 252)
+      );
+    }
+    50% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.96)
+      );
+    }
+    52% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.92)
+      );
+    }
+    54% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.88)
+      );
+    }
+    56% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.84)
+      );
+    }
+    58% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.8)
+      );
+    }
+    60% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.76)
+      );
+    }
+    62% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.72)
+      );
+    }
+    64% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.68)
+      );
+    }
+    66% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.64)
+      );
+    }
+    68% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.6)
+      );
+    }
+    70% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.56)
+      );
+    }
+    72% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.52)
+      );
+    }
+    74% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.48)
+      );
+    }
+    76% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.44)
+      );
+    }
+    78% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.4)
+      );
+    }
+    80% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.36)
+      );
+    }
+    82% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.32)
+      );
+    }
+    84% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.28)
+      );
+    }
+    86% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.24)
+      );
+    }
+    88% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.2)
+      );
+    }
+    90% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.16)
+      );
+    }
+    92% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.12)
+      );
+    }
+    94% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.08)
+      );
+    }
+    98% {
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(202, 240, 252, 0.04)
+      );
+    }
 
-            100% {background: transparent;}}
-    
+    100% {
+      background: transparent;
+    }
+  }
 
-.door{position: absolute;
+  .door {
+    position: absolute;
     top: 180px;
     right: 150px;
     height: 250px;
     width: 120px;
-    background-color: rgb(251,221,157);
+    background-color: rgb(251, 221, 157);
     border: 2px solid black;
-}
-.turnBlack{background-color: black;
-  border: 2px solid white;
-z-index: 2;}
-.doorknob{height: 10px;
+  }
+  .turnBlack {
+    background-color: black;
+    border: 2px solid white;
+    z-index: 2;
+  }
+  .doorknob {
+    height: 10px;
     width: 8px;
     margin: 125px 0px 0 100px;
     border-radius: 50%;
     background-color: black;
-    border: 1px solid black;}
-.key{position: absolute;
-  width: 60px;
-bottom: -40px;
-right: 230px;
-transition: transform 1s;
-}
-.key.hover {
-cursor: pointer;
-animation: move1 2s linear, move2 2s linear;
-animation-fill-mode: forwards;
-z-index: 1;
-}
+    border: 1px solid black;
+  }
+  .key {
+    position: absolute;
+    width: 60px;
+    bottom: -40px;
+    right: 230px;
+    transition: transform 1s;
+  }
+  .key.hover {
+    cursor: pointer;
+    animation: move1 2s linear, move2 2s linear;
+    animation-fill-mode: forwards;
+    z-index: 1;
+  }
 
+  @keyframes move1 {
+    0% {
+      transform: translate(0, 0);
+    }
+    20% {
+      transform: rotate(100deg);
+    }
+    40% {
+      transform: rotate(260deg);
+    }
+    100% {
+      transform: translateY(-100px) translateX(10px);
+    }
+  }
 
-@keyframes move1 {
-  0% {
-    transform: translate(0, 0);
+  @keyframes move2 {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(100deg);
+    }
+    70% {
+      transform: rotate(260deg);
+    }
+    100% {
+      transform: translateY(-320px) translateX(65px);
+    }
   }
-  20% {
-    transform: rotate(100deg);
+  #entrance {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 3;
+    position: absolute;
+    top: 280px;
+    right: 175px;
   }
-  40% {
-    transform: rotate(260deg);
-  }
-100% {
-    transform: translateY(-100px) translateX(10px);}
-}
-
-@keyframes move2 {
-0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(100deg);
-  }
-  70% {
-    transform: rotate(260deg);
-  }
-  100% {
-    transform:  translateY(-320px) translateX(65px);
-  }
-} 
-#entrance{color: white;
-font-weight: bold;
-font-size: 1.2rem;
-z-index: 3;
-position: absolute;
-top: 280px;
-  right: 175px;} 
   /* turnBlack */
-.hide{display: none;}
+  .hide {
+    display: none;
+  }
 </style>
 
-
 <main>
-<a id="entrance" class="hide" href="../animals"> ВОЙТИ</a>
-   <img class="key" src="../key.png" alt="ключ" id="key">
-<h2>Чтобы попасть на следующую страницу тебе нужно <span class="span-question">найти упавший в сугробы ключ</span> и открыть дверь.<br> Топи зиму, спасай лето! :D </h2>
-<div class="door" id="door"><div class="doorknob" ></div></div>
-<div class="snow-wrap">
-<div class="snowdrift-upperPart">
-<div class="snowdrift snowdrift-1"></div> 
-<div class="snowdrift snowdrift-2"></div>
-<div class="snowdrift snowdrift-3"></div>
-  <!-- git add . 
+  <a id="entrance" class="hide" href="../animals"> ВОЙТИ</a>
+  <img class="key" src="../key.png" alt="ключ" id="key" />
+  <h2>
+    Чтобы попасть на следующую страницу тебе нужно <span class="span-question"
+      >найти упавший в сугробы ключ</span
+    > и открыть дверь.<br /> Топи зиму, спасай лето! :D
+  </h2>
+  <div class="door" id="door"><div class="doorknob"></div></div>
+  <div class="snow-wrap">
+    <div class="snowdrift-upperPart">
+      <div class="snowdrift snowdrift-1"></div>
+      <div class="snowdrift snowdrift-2"></div>
+      <div class="snowdrift snowdrift-3"></div>
+      <!-- git add . 
   git commit -m "пытаюсь сделать так, чтобы картинка ключа появилась"
  git push -u origin 
 -->
 
+      <div class="snowdrift-lowPart">
+        <div class="snowdrift-start snowdrift"></div>
+        <div class="snowdrift"></div>
+        <div class="snowdrift"></div>
+        <div class="snowdrift"></div>
+        <div class="snowdrift-end snowdrift"></div>
+      </div>
+    </div>
+  </div>
 
-<div class="snowdrift-lowPart"> 
-    <div class="snowdrift-start snowdrift"></div> 
-<div class="snowdrift"></div>
-<div class="snowdrift"></div>
-<div class="snowdrift"></div>
-<div class="snowdrift-end snowdrift">
-    
-</div>
-</div>
-</div>
-
-</main>
-
-
-
-<!-- <script>
+  <!-- <script>
   const containerAnswers = document.getElementById('containerAnswers');  
   const storedSurveyFormResults=  localStorage.getItem('surveyFormResults');
   const weatherSurveyFormResults= JSON.parse(localStorage.getItem('surveyFormResults'));
@@ -271,3 +584,4 @@ top: 280px;
 </script>
 
 <div id="containerAnswers">---</div> -->
+</main>
