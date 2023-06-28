@@ -11,7 +11,7 @@ import Grain from "./Grain.astro";
     // const animalsSurvey = addEventListener('click', function =>{})
 
     surveyFormAnimals.addEventListener("submit", function (event) {
-        event.preventDefault()
+        event.preventDefault();
         surveyFormAnimalsResult = JSON.stringify(
             document.querySelector('input[name="animals"]:checked').value
         );
@@ -23,26 +23,33 @@ import Grain from "./Grain.astro";
             surveyFormAnimalsResult
         )}`;
         const resultContainerAnimals = document.getElementById(
-        "animalsShowAnswersContainer"
-    );
-    const surveySubmitButton = document.getElementById("surveySubmitButton");
-    let storedResultsAnimals;
-    storedResultsAnimals = localStorage.getItem("surveyFormAnimalsResult");
-    const resultsAnimals = JSON.stringify("storedResultsAnimals");
-    resultContainerAnimals.textContent = `✓${storedResultsAnimals.replace(
-        /"/g,
-        ""
-    )}`;
-
-    setTimeout(function displayResultContainerAnimals() {
+            "animalsShowAnswersContainer"
+        );
+        const surveySubmitButton =
+            document.getElementById("surveySubmitButton");
+        let storedResultsAnimals;
+        storedResultsAnimals = localStorage.getItem("surveyFormAnimalsResult");
+        const resultsAnimals = JSON.stringify("storedResultsAnimals");
+        resultContainerAnimals.textContent = `✓${storedResultsAnimals.replace(
+            /"/g,
+            ""
+        )}`;
         resultContainerAnimals.classList.add("display");
-    }, 0);
-    setTimeout(function displayResultContainerAnimals() {
-        location.reload()
-    }, 3000);
-    
+        setTimeout(()=> {
+            location.reload();
+        }, 3000);
     });
-    
+
+    let counter = 10;
+    document.addEventListener('click', ()=>{
+        counter--;
+    const surveyTask = document.getElementById('surveyTask'); 
+    const surveyCounter = document.getElementById('surveyCounter');
+    surveyCounter.textContent = `${counter} раз`;
+    if(counter ===0){
+        surveyTask.style.zIndex ='-1';
+    };
+    });
     
 </script>
 
@@ -122,8 +129,10 @@ import Grain from "./Grain.astro";
         padding: 5px;
         border-radius: 0 10px 10px 0;
     }
-    .survey_wrap-result{position: relative;
-    height: 60px;}
+    .survey_wrap-result {
+        position: relative;
+        height: 60px;
+    }
     .survey_button {
         position: absolute;
         left: 176px;
@@ -141,8 +150,10 @@ import Grain from "./Grain.astro";
     }
     .survey_next-page {
         position: absolute;
-        display: block;
         z-index: 1;
+        bottom: 0px;
+        left: 390px;
+        display: block;
         width: 180px;
         color: white;
         font-size: 1rem;
@@ -151,14 +162,10 @@ import Grain from "./Grain.astro";
         text-decoration: none;
         text-align: center;
         padding: 12px 8px;
-        bottom: 0px;
-        left: 390px;
         border-top: 3px solid #c9f0ff;
         border-left: 3px solid #c9f0ff;
         border-right: 3px solid #c9f0ff;
-        border-bottom: 0px solid black;
         background-color: #3488a8;
-        /* border-radius: 30px; */
     }
     .survey_next-page:hover {
         cursor: pointer;
@@ -176,12 +183,24 @@ import Grain from "./Grain.astro";
         border-right: 0px solid #c9f0ff;
         border-bottom: 0px solid #c9f0ff;
     }
+    .survey_next-page.task{
+        padding: 8px 8px;
+        font-size: 0.9rem;
+        width: 200px;
+        left: 380px;
+        margin: 0;
+    }
+    #surveyCounter{
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 2px 5px;
+        border-radius: 6px;
+        color: red;
+    }
     #animalsShowAnswersContainer {
         position: absolute;
         left: 176px;
         background-color: greenyellow;
         text-align: center;
-    
         width: 174px;
         padding: 9.5px;
     }
@@ -189,6 +208,7 @@ import Grain from "./Grain.astro";
         z-index: 1;
     }
     .survey_container-bird {
+        margin-top: 10px;
         margin-bottom: -30px;
     }
 </style>
@@ -285,20 +305,23 @@ import Grain from "./Grain.astro";
                     <p class="survey_labelText">Птичку-фамильяра</p>
                 </div>
                 <div class="survey_wrap-result">
-                    <p  id="animalsShowAnswersContainer"></p>
+                    <p id="animalsShowAnswersContainer"></p>
                     <button
                         id="surveySubmitButton"
                         class="survey_button"
                         type="submit"
                         class="submit">Тык для сохранения</button
                     >
-                   
                 </div>
                 <a
                     class="survey_next-page"
                     id="surveyButtonNextPage"
                     href="../resultsPage">Следующая страница</a
                 >
+                <p
+                class="survey_next-page task"
+                id="surveyTask"
+                >Покорми птичку <span id="surveyCounter">10 раз</span> и сможешь пройти дальше</p>
             </div>
             <div class="survey_container-bird"><Grain /></div>
         </div>
