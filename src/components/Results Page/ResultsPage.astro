@@ -1,18 +1,189 @@
-
 <script>
-const resultContainerWeather = document.getElementById('resultsPage_result_container_weather');
-const storedResultsWeather = localStorage.getItem('surveyFormWeatherResults');
-const resultsWeather = JSON.stringify('storedResultsWeather');
-resultContainerWeather.textContent = `${storedResultsWeather}`;
+    const resultContainerAnimals = document.getElementById(
+        "results_result_container_animals"
+    );
+    const storedResultsAnimals = localStorage.getItem(
+        "surveyFormAnimalsResult"
+    );
+    const resultsAnimals = JSON.parse(storedResultsAnimals);
+    // resultContainerAnimals.textContent = `${storedResultsAnimals}`;
 
-const resultContainerAnimals = document.getElementById('resultsPage_result_container_animals');
-const storedResultsAnimals = localStorage.getItem('surveyFormAnimalsResult');
-const resultsAnimals = JSON.stringify('storedResultsAnimals');
-resultContainerAnimals.textContent = `${storedResultsAnimals}`;
+    const resultContainerWeather = document.getElementById(
+        "results_result_container_weather"
+    );
+    const storedResultsWeather = localStorage.getItem(
+        "surveyFormWeatherResults"
+    );
+    const resultsWeather = JSON.parse(storedResultsWeather);
+    // resultContainerWeather.textContent = `${resultsWeather.season} ${resultsWeather.name} `;
+
+    const resultName = document.getElementById("resultName");
+    const resultClouds = document.getElementById("resultClouds");
+    const resultHumidity = document.getElementById("resultHumidity");
+    const resultSeason = document.getElementById("resultSeason");
+    const resultTemperature = document.getElementById("resultTemperature");
+    const resultAnimal = document.getElementById("resultAnimal");
+    // const resultName = document.getElementById('resultName');
+
+    resultName.textContent = `, ${resultsWeather.name}`;
+    resultClouds.textContent = `${resultsWeather.clouds}`;
+    resultHumidity.textContent = ` ${resultsWeather.humidity}`;
+    resultSeason.textContent = ` ${resultsWeather.season}`;
+    resultTemperature.textContent = ` ${resultsWeather.temperature}`;
+    resultAnimal.textContent = ` ${resultsAnimals}`;
+
+
+
+    const resultTextAnimals = document.getElementById("resultTextAnimals");
+    if (resultsAnimals === "лошадь") {
+        resultTextAnimals.textContent = `Так заведи!`;
+    } else if (resultsAnimals === "дракончика") {
+        resultTextAnimals.textContent = `Так Заведи себе личный самолет! Он отвезет тебя куда угодно и с огромным удовольствием :) Или даже - выучись на пилота. А то думаешь на драконе бы смог летать без летных прав?`;
+    } else if (resultsAnimals === "котика-фамильяра") {
+        resultTextAnimals.textContent = `Так заведи себе девушку-содержанку/мальчика-альфонса поумнее и независимее и наслаждайся их теплым боком, когда у них есть настроение.`;
+    } else if (resultsAnimals === "птичку-фамильяра") {
+        resultTextAnimals.textContent = `Так заведи себе девушку-содержанку/мальчика-альфонса поглупее и наслаждайся
+    милым щебетанием каждый день.`;
+    };
+    let counter = 2;
+    const  resultMessage = document.getElementsByClassName('result_message');
+setTimeout(()=>{ resultMessage[0].classList.remove('hide')}, 500)
+setTimeout(()=>{ resultMessage[1].classList.remove('hide')}, 2000)
+setTimeout(()=>{ resultMessage[2].classList.remove('hide')}, 3000)
+
+document.addEventListener('click', ()=>{
+    counter++;
+    resultMessage[counter].classList.remove('hide');
+
+});
+
+
 </script>
 
+<style>
+    .result_highlight-word {
+        background-color: rgba(255, 255, 255, 0.65);
+        padding: 2px 5px;
+        border-radius: 6px;
+        color: rgb(119, 43, 134);
+        font-weight: bolder;
+    }
 
-<div id="resultsPage_result_container_animals">dd</div>
-<div id="resultsPage_result_container_weather">---</div>
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 0 100px 100px 100px;
+    }
+    p {
+        margin: 0;
+    }
+    h2 {
+        text-align: center;
+        align-self: center;
+       width: 300px;
+       padding-bottom: 10px;
+        border-bottom: 3px solid #3488a8;
+    }
+    .result_message {
+        background-color: rgb(251, 221, 157);
+        padding: 10px 15px;
+        border-radius: 10px;
+        max-width: 400px;
+    }
+    .result_message.left {
+        border-radius: 10px 10px 10px 0px;
+    }
+    .result_message.right {
+        color: white;
+        background-color: rgb(119, 43, 134);
+        border-radius: 10px 10px 0px 10px;
+        align-self: flex-end;
+    }
+    .hide{display: none;}
+</style>
 
+<!-- <div id="results_result_container_animals">---</div>
+<div id="results_result_container_weather">---</div> -->
 
+<section>
+    <h2 class="result_name left">
+        Прум-пум-пум<span id="resultName"></span>!
+    </h2>
+    <p class="result_greeting result_message left hide">Ты добрался до конца!</p>
+
+    <p class="result_greeting result_message left hide">
+        Добро пожаловать в наш волшебный мир Земля!
+    </p>
+    <p class="result_greeting result_message left hide">
+        *Кликни, чтобы увидеть что будет дальше.*
+    </p>
+    <p class="result_greeting result_message right hide">
+        Ты спуталсь. Не Земля, а Аррета.
+    </p>
+    <p class="result_greeting result_message left hide">
+        Не спуталась! Аррета=терра=Земля - таддааа.
+    </p>
+    <p class="result_greeting result_message right hide">Что за дичь.</p>
+    <p class="result_greeting result_message left hide">
+        Не дичь, а ребенок фантазий создательницы сайта. А она плохо спит, так
+        что фантазии у нее могут быть разными...
+    </p>
+    <p class="result_greeting result_message left hide">
+        Итак, что там прекрасного с твоим результатами...
+    </p>
+
+    <p class="result_greeting result_message left hide">
+        Итак, тебе нравится, чтобы было <span
+            class="result_highlight-word"
+            id="resultClouds"></span> и <span
+            class="result_highlight-word"
+            id="resultHumidity"></span>, <span
+            class="result_highlight-word"
+            id="resultSeason"></span> сезон и температура <span
+            class="result_highlight-word"
+            id="resultTemperature"></span>
+        градусов.
+    </p>
+
+    <p class="result_greeting result_message right hide">
+        *закатываем глазки* И ты сейчас скажешь, что вот на Земле тоже можно
+        найти места с такой погодой и не обязательно для этого иметь
+        супер-пупер-погодный купол?
+    </p>
+    <p class="result_greeting result_message left hide">
+        Даааа. Хватит уже страдать и найди себе место с климотом мечты!
+    </p>
+
+    <!-- <p>Я уверена, что на нашем голубом шарике найдется место с тем климатом,
+    котoрый ты загадал</p> -->
+    <p class="result_greeting result_message left hide">Итак, дальше</p>
+
+    <p class="result_greeting result_message left hide">
+        Ты бы хотел себе в питомцы <span
+            class="result_highlight-word"
+            id="resultAnimal"></span>...
+    </p>
+    <p class="result_greeting result_message right hide">И?</p>
+    <p class="result_greeting result_message left hide" id="resultTextAnimals">
+        ...
+    </p>
+    <p class="result_greeting result_message left hide">
+        Я все сказала. Я счастлива, что ты потыкался по моему сайту. <b>
+            Спасибо :)</b
+        >
+    </p>
+</section>
+<!-- <p>
+    Так заведи себе девушку-содержанку/мальчика-альфонса поглупее и наслаждайся
+    милым щебетанием каждый день
+</p> -->
+
+<!--
+        <p>
+        У нас самый красивые закаты и рассветы, добрейшие и глупейшие люди, а
+        главное, тут можно все, что твоей душеньке угодно!
+    </p> <p>Так заведи себе девушку-содержанку/мальчика-альфонса поумнее и независимее и наслаждайся их теплым боком, когда у них есть настроение</p>
+<p>Так Заведи себе личный самолет! Он отвезет тебя куда угодно и с огромным удовольствием :) Или даже - выучись на пилота. А то думаешь на драконе бы смог летать без летных прав?</p>
+<p>Так заведи!</p> -->
