@@ -11,6 +11,7 @@ import Grain from "./Grain.astro";
     // const animalsSurvey = addEventListener('click', function =>{})
 
     surveyFormAnimals.addEventListener("submit", function (event) {
+        event.preventDefault()
         surveyFormAnimalsResult = JSON.stringify(
             document.querySelector('input[name="animals"]:checked').value
         );
@@ -21,9 +22,7 @@ import Grain from "./Grain.astro";
         animalsShowAnswersContainer.textContent = `2:${JSON.stringify(
             surveyFormAnimalsResult
         )}`;
-    });
-
-    const resultContainerAnimals = document.getElementById(
+        const resultContainerAnimals = document.getElementById(
         "animalsShowAnswersContainer"
     );
     const surveySubmitButton = document.getElementById("surveySubmitButton");
@@ -39,8 +38,12 @@ import Grain from "./Grain.astro";
         resultContainerAnimals.classList.add("display");
     }, 0);
     setTimeout(function displayResultContainerAnimals() {
-        resultContainerAnimals.classList.remove("display");
+        location.reload()
     }, 3000);
+    
+    });
+    
+    
 </script>
 
 <style>
