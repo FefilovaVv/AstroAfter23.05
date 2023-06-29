@@ -70,6 +70,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+        
     }
 
     .question {
@@ -87,40 +88,12 @@
         border-radius: 5px;
     }
 
-    .p-vertical {
-        writing-mode: vertical-rl;
-        text-orientation: upright;
-        position: absolute;
-        font-size: 4.2rem;
-        margin: 0;
-        background: linear-gradient(
-            rgb(119, 43, 134),
-            #86b1c1 40%,
-            #c9f0ff 80%
-        );
-        width: 116px;
-        line-height: 116px;
-        color: white;
-        font-weight: bold;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        bottom: 25px;
-        opacity: 0.8;
-    }
-
-    .p-vertical-weather {
-        top: -20px;
-        left: -40px;
-    }
-    .p-vertical-dream {
-        top: -20px;
-        right: -40px;
-    }
     form {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
         row-gap: 20px;
+        
     }
 
     .grid-container {
@@ -164,15 +137,24 @@
     select {
         border-radius: 6px;
     }
+    .weather_wrap-relative {
+        width: 200px;
+        display: block;
+        position: relative;
+        align-self: center;
+       
+    }
     .weather_submit {
+        position: absolute;
         display: block;
         color: white;
         font-size: 1rem;
         font-weight: bolder;
         padding: 10px 15px;
-        margin: 16px 0;
+        margin: 0;
         border: 3px solid rgb(107, 36, 121);
         background-color: rgb(119, 43, 134);
+        width: 200px;
     }
     .weather_submit:hover {
         cursor: pointer;
@@ -195,6 +177,7 @@
         text-align: center;
         padding: 11px 8px;
         border: 3px solid #c9f0ff;
+        margin-top: 65px;
     }
     .weather_next-page:hover {
         cursor: pointer;
@@ -202,17 +185,14 @@
     }
     #answersContainer {
         position: absolute;
-        z-index: -2;
-        left: 350px;
-        bottom: 82px;
         background-color: greenyellow;
         text-align: center;
-        width: 176px;
-        padding: 12.5px;
-        
+        width: 200px;
+        padding: 12.5px 0;
+        margin: 0;
     }
     #answersContainer.display {
-        z-index: 0;
+        z-index: 1;
     }
 </style>
 
@@ -237,7 +217,7 @@
         <form id="surveyForm">
             <div class="name-container container">
                 <label for="nameInput"><h3>Твое имя:</h3> <br /></label>
-                <input type="text" name="name" id="nameInput" required />
+                <input type="text" name="name" id="nameInput" />
             </div>
             <div class="grid-container">
                 <div class="temperature-container container">
@@ -323,16 +303,18 @@
                     </select>
                 </div>
             </div>
-            <button type="submit" class="weather_submit"
-                >Тык для сохранения</button
-            >
+            <div class="weather_wrap-relative">
+                <div id="answersContainer">✓</div>
+                <button type="submit" class="weather_submit"
+                    >Тык для сохранения</button
+                >
+                
+            </div>
             <!-- <button id="showAnswersButton">Покажи мне мои ответы</button> -->
-            <a
-                class="weather_next-page"
-                href="../gameForWeather">След страница</a
-            >
+           
         </form>
-
-        <div id="answersContainer">✓</div>
+        <a class="weather_next-page" href="../gameForWeather"
+        >След страница</a
+    >
     </div>
 </main>

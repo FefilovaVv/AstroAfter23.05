@@ -2,35 +2,10 @@
 import Bird from "./Bird.astro";
 ---
 
-<!--  
-          const falling = () => {
-                grainDiv.classList.add("grain_grain", "falling");
-            };
-            
-            falling(); 
-        
-         const allGrains = document.querySelectorAll(".grain_grain");
-            allGrains.forEach(function (element) {
-                allGrains.style.left = event.clientX + "px";
-            });
-             const secondChild = document.querySelector(
-                                ".grain_grain.falling:nth-child(2n + 1)"
-                            );
-                            secondChild.style.transform =
-                                "translate(" +
-                                50 +
-                                "px," +
-                                distanceBetweenGrainAndFloor +
-                                "px" +
-                                ")";
-        -->
 <script>
-    //   найти х и у мышки
+   
+    // const veiwResultGrain = document.getElementById("veiw-result-Grain");
 
-    //  вставить их в top right
-    const veiwResultGrain = document.getElementById("veiw-result-Grain");
-
-    
     document.addEventListener("click", function (event) {
         for (let i = 0; i < 3; i++) {
             const grainDiv = document.createElement("div");
