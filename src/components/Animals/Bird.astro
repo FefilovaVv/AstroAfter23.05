@@ -1,5 +1,4 @@
 <script>
-    // const results = document.getElementById('results');
     document.addEventListener("click", function (event) {
         const container = document.getElementById("main");
         const birdWalk = document.getElementById("bird_walk");
@@ -15,7 +14,7 @@
             "translate(" +
             (isClickOnLeft === true
                 ? mouseXInsideContainer - 25
-                : mouseXInsideContainer - 100) +
+                : mouseXInsideContainer - 95) +
             "px)";
         birdRotation.style.animation = "";
         setTimeout(() => {
@@ -26,13 +25,12 @@
         }, 100);
         birdImage.style.transform =
             isClickOnLeft === true ? "scale(1,1)" : "scale(-1,1)";
-        // results.textContent =`mouseX${mouseX}____window.innerWidth${window.innerWidth}____mouseXInsideContainer${mouseXInsideContainer} ____container.getBoundingClientRect().width${container.getBoundingClientRect().width}____birdImagePosition${birdImagePosition}____isClickOnLeft${isClickOnLeft}`;
     });
 </script>
 
 <style>
     #bird_image {
-        width: 50px;
+        width: 45px;
     }
     .flip {
         transform: scale(-1, 1);
