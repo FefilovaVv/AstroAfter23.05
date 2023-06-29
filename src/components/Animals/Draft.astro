@@ -1,0 +1,173 @@
+<script>
+    
+const results = document.getElementById('results');
+    const container = document.getElementById("main");
+    document.addEventListener("click", function (event) {
+        const birdWalk = document.getElementById("bird_walk");
+        const birdRotation = document.getElementById("bird_rotation");
+        const birdImage = document.getElementById("bird_image");
+        const mouseX = event.clientX;
+        const mouseXInsideContainer =
+            mouseX - (window.innerWidth - container.getBoundingClientRect().width)/2;
+        const birdImagePosition = birdImage.getBoundingClientRect().x;
+        let isClickOnLeft = mouseX < birdImagePosition ? true : false;
+        birdWalk.style.transform =
+            "translate(" +
+            (isClickOnLeft === true
+                ? mouseXInsideContainer - 25
+                : mouseXInsideContainer - 100) +
+            "px)";
+        birdRotation.style.animation = "";
+        setTimeout(() => {
+            birdRotation.style.animation =
+                isClickOnLeft === true
+                    ? "rotateBirdLeft 1s ease 1s"
+                    : "rotateBirdRight 1s ease 1s";
+        }, 100);
+        birdImage.style.transform =
+            isClickOnLeft === true ? "scale(1,1)" : "scale(-1,1)";
+            // results.textContent =`mouseX${mouseX}____window.innerWidth${window.innerWidth}____mouseXInsideContainer${mouseXInsideContainer} ____container.getBoundingClientRect().width${container.getBoundingClientRect().width}____birdImagePosition${birdImagePosition}____isClickOnLeft${isClickOnLeft}`;
+    });
+    
+   
+</script>
+
+<style>
+    #bird_image {
+        width: 50px;
+    }
+    .flip {
+        transform: scale(-1, 1);
+    }
+    #bird_walk {
+        transition: 1s;
+        display: inline-block;
+    }
+    #bird_rotation {
+        display: inline-block;
+    }
+    @keyframes rotateBirdRight {
+        0% {
+            transform: rotate(0deg);
+            transform-origin: 82% 80%;
+        }
+
+        40% {
+            transform: rotate(100deg);
+            transform-origin: 65% 60%;
+        }
+        100% {
+            transform: rotate(0deg);
+            transform-origin: 82% 80%;
+        }
+    }
+    @keyframes rotateBirdLeft {
+        0% {
+            transform: rotate(0deg);
+            transform-origin: 18% 80%;
+        }
+
+        30% {
+            transform: rotate(-100deg);
+            transform-origin: 35% 60%;
+        }
+        100% {
+            transform: rotate(0deg);
+            transform-origin: 18% 80%;
+        }
+    }
+</style>
+<div id="bird_walk">
+    <div id="bird_rotation">
+        <img class="" id="bird_image" src="../bird.svg" alt="птичка" />
+    </div>
+</div>
+<p id="results"></p>
+
+
+
+
+
+
+
+
+
+<!-- <script>
+    const container = document.getElementById("main");
+    container.addEventListener("click", function (event) {
+        const birdWalk = document.getElementById("bird_walk");
+        const birdRotation = document.getElementById("bird_rotation");
+        const birdImage = document.getElementById("bird_image");
+        const mouseX = event.clientX;
+        const mouseXInsideContainer =
+            mouseX - container.getBoundingClientRect().x;
+        const birdImagePosition = birdImage.getBoundingClientRect().x;
+        let isClickOnLeft = mouseX < birdImagePosition ? true : false;
+        birdWalk.style.transform =
+            "translate(" +
+            (isClickOnLeft === true
+                ? mouseXInsideContainer - 25
+                : mouseXInsideContainer - 100) +
+            "px)";
+        birdRotation.style.animation = "";
+        setTimeout(() => {
+            birdRotation.style.animation =
+                isClickOnLeft === true
+                    ? "rotateBirdLeft 1s ease 1s"
+                    : "rotateBirdRight 1s ease 1s";
+        }, 100);
+        birdImage.style.transform =
+            isClickOnLeft === true ? "scale(1,1)" : "scale(-1,1)";
+    });
+</script>
+
+<style>
+    #bird_image {
+        width: 50px;
+    }
+    .flip {
+        transform: scale(-1, 1);
+    }
+    #bird_walk {
+        transition: 1s;
+        display: inline-block;
+    }
+    #bird_rotation {
+        display: inline-block;
+    }
+    @keyframes rotateBirdRight {
+        0% {
+            transform: rotate(0deg);
+            transform-origin: 82% 80%;
+        }
+
+        40% {
+            transform: rotate(100deg);
+            transform-origin: 65% 60%;
+        }
+        100% {
+            transform: rotate(0deg);
+            transform-origin: 82% 80%;
+        }
+    }
+    @keyframes rotateBirdLeft {
+        0% {
+            transform: rotate(0deg);
+            transform-origin: 18% 80%;
+        }
+
+        30% {
+            transform: rotate(-100deg);
+            transform-origin: 35% 60%;
+        }
+        100% {
+            transform: rotate(0deg);
+            transform-origin: 18% 80%;
+        }
+    }
+</style>
+<div id="bird_walk">
+    <div id="bird_rotation">
+        <img class="" id="bird_image" src="../bird.svg" alt="птичка" />
+    </div>
+</div> -->

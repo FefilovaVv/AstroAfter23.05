@@ -34,7 +34,7 @@ import Bird from "./Bird.astro";
     document.addEventListener("click", function (event) {
         for (let i = 0; i < 3; i++) {
             const grainDiv = document.createElement("div");
-            const birdContainer = document.getElementById("bird-walk");
+            const birdContainer = document.getElementById("bird_walk");
             const distanceFromContainerToLeft =
             document.getElementById("main").offsetLeft;
             const distanceBetweenGrainAndFloor =
@@ -101,6 +101,7 @@ import Bird from "./Bird.astro";
     }
     .grain_bird-container {
         display: inline;
+        width: ;
     }
 </style>
 
