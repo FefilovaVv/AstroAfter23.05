@@ -70,7 +70,6 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        
     }
 
     .question {
@@ -93,7 +92,6 @@
         align-items: flex-start;
         flex-direction: column;
         row-gap: 20px;
-        
     }
 
     .grid-container {
@@ -142,7 +140,6 @@
         display: block;
         position: relative;
         align-self: center;
-       
     }
     .weather_submit {
         position: absolute;
@@ -217,7 +214,7 @@
         <form id="surveyForm">
             <div class="name-container container">
                 <label for="nameInput"><h3>Твое имя:</h3> <br /></label>
-                <input type="text" name="name" id="nameInput" />
+                <input type="text" name="name" id="nameInput" required />
             </div>
             <div class="grid-container">
                 <div class="temperature-container container">
@@ -308,13 +305,9 @@
                 <button type="submit" class="weather_submit"
                     >Тык для сохранения</button
                 >
-                
             </div>
             <!-- <button id="showAnswersButton">Покажи мне мои ответы</button> -->
-           
         </form>
-        <a class="weather_next-page" href="../gameForWeather"
-        >След страница</a
-    >
+        <a class="weather_next-page" href="../gameForWeather">След страница</a>
     </div>
 </main>

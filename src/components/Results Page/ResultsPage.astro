@@ -32,8 +32,6 @@
     resultTemperature.textContent = ` ${resultsWeather.temperature}`;
     resultAnimal.textContent = ` ${resultsAnimals}`;
 
-
-
     const resultTextAnimals = document.getElementById("resultTextAnimals");
     if (resultsAnimals === "лошадь") {
         resultTextAnimals.textContent = `Так заведи!`;
@@ -44,20 +42,23 @@
     } else if (resultsAnimals === "птичку-фамильяра") {
         resultTextAnimals.textContent = `Так заведи себе девушку-содержанку/мальчика-альфонса поглупее и наслаждайся
     милым щебетанием каждый день.`;
-    };
+    }
     let counter = 2;
-    const  resultMessage = document.getElementsByClassName('result_message');
-setTimeout(()=>{ resultMessage[0].classList.remove('hide')}, 500)
-setTimeout(()=>{ resultMessage[1].classList.remove('hide')}, 2000)
-setTimeout(()=>{ resultMessage[2].classList.remove('hide')}, 3000)
+    const resultMessage = document.getElementsByClassName("result_message");
+    setTimeout(() => {
+        resultMessage[0].classList.remove("hide");
+    }, 500);
+    setTimeout(() => {
+        resultMessage[1].classList.remove("hide");
+    }, 2000);
+    setTimeout(() => {
+        resultMessage[2].classList.remove("hide");
+    }, 3000);
 
-document.addEventListener('click', ()=>{
-    counter++;
-    resultMessage[counter].classList.remove('hide');
-
-});
-
-
+    document.addEventListener("click", () => {
+        counter++;
+        resultMessage[counter].classList.remove("hide");
+    });
 </script>
 
 <style>
@@ -82,8 +83,8 @@ document.addEventListener('click', ()=>{
     h2 {
         text-align: center;
         align-self: center;
-       width: 300px;
-       padding-bottom: 10px;
+        width: 300px;
+        padding-bottom: 10px;
         border-bottom: 3px solid #3488a8;
     }
     .result_message {
@@ -101,7 +102,9 @@ document.addEventListener('click', ()=>{
         border-radius: 10px 10px 0px 10px;
         align-self: flex-end;
     }
-    .hide{display: none;}
+    .hide {
+        display: none;
+    }
 </style>
 
 <!-- <div id="results_result_container_animals">---</div>
@@ -111,7 +114,9 @@ document.addEventListener('click', ()=>{
     <h2 class="result_name left">
         Прум-пум-пум<span id="resultName"></span>!
     </h2>
-    <p class="result_greeting result_message left hide">Ты добрался до конца!</p>
+    <p class="result_greeting result_message left hide">
+        Ты добрался до конца!
+    </p>
 
     <p class="result_greeting result_message left hide">
         Добро пожаловать в наш волшебный мир Земля!

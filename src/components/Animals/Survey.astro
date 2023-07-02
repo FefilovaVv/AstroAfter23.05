@@ -35,22 +35,21 @@ import Grain from "./Grain.astro";
             ""
         )}`;
         resultContainerAnimals.classList.add("display");
-        setTimeout(()=> {
+        setTimeout(() => {
             location.reload();
         }, 3000);
     });
 
     let counter = 10;
-    document.addEventListener('click', ()=>{
+    document.addEventListener("click", () => {
         counter--;
-    const surveyTask = document.getElementById('surveyTask'); 
-    const surveyCounter = document.getElementById('surveyCounter');
-    surveyCounter.textContent = `${counter} раз`;
-    if(counter ===0){
-        surveyTask.style.zIndex ='-1';
-    };
+        const surveyTask = document.getElementById("surveyTask");
+        const surveyCounter = document.getElementById("surveyCounter");
+        surveyCounter.textContent = `${counter} раз`;
+        if (counter === 0) {
+            surveyTask.style.zIndex = "-1";
+        }
     });
-    
 </script>
 
 <style>
@@ -119,7 +118,7 @@ import Grain from "./Grain.astro";
         padding-bottom: 5px;
         margin: 0;
     }
- 
+
     .survey_labelText {
         display: inline;
         color: white;
@@ -132,12 +131,11 @@ import Grain from "./Grain.astro";
         padding: 5px;
         border-radius: 0 10px 10px 0;
     }
- 
+
     .survey_wrap-result {
         position: relative;
-display: flex;
-justify-content: center;
-
+        display: flex;
+        justify-content: center;
     }
     .survey_button {
         position: absolute;
@@ -147,7 +145,7 @@ justify-content: center;
         font-weight: bolder;
         padding: 10px 15px;
         margin: 0;
-        border:none;
+        border: none;
         background-color: rgb(119, 43, 134);
         width: 200px;
     }
@@ -178,16 +176,15 @@ justify-content: center;
     .survey_button:hover {
         cursor: pointer;
         background-color: rgb(107, 36, 121);
-  
     }
-    .survey_next-page.task{
+    .survey_next-page.task {
         padding: 8px 8px;
         font-size: 0.9rem;
         width: 200px;
         left: 380px;
         margin: 0;
     }
-    #surveyCounter{
+    #surveyCounter {
         background-color: rgba(255, 255, 255, 0.5);
         padding: 2px 5px;
         border-radius: 6px;
@@ -268,59 +265,59 @@ justify-content: center;
             <label for="survey_form-animals"
                 ><h2 class="survey_question">А кого выбрал бы ты?</h2></label
             >
-            
-                <div class="survey_wrap-radio">
-                    <input
-                        type="radio"
-                        id="animalsDragon"
-                        name="animals"
-                        value="дракончика"
-                        required
-                    />
-                    <p class="survey_labelText">Дракончика</p>
-                    <input
-                        type="radio"
-                        id="animalsCat"
-                        name="animals"
-                        value="котика-фамильяра"
-                    />
-                    <p class="survey_labelText">Котика-фамильяра</p>
-                    <input
-                        type="radio"
-                        id="animalsHorse"
-                        name="animals"
-                        value="лошадь"
-                        required
-                    />
-                    <p class="survey_labelText">Лошадь</p>
-                    <input
-                        type="radio"
-                        id="animalsBird"
-                        name="animals"
-                        value="птичку-фамильяра"
-                    />
-                    <p class="survey_labelText">Птичку-фамильяра</p>
-                </div>
-              
-                <div class="survey_wrap-result">
-                    <p id="animalsShowAnswersContainer"></p>
-                    <button
-                        id="surveySubmitButton"
-                        class="survey_button"
-                        type="submit"
-                        class="submit">Тык для сохранения</button
-                    ></div>
-               
-                <a
-                    class="survey_next-page"
-                    id="surveyButtonNextPage"
-                    href="../resultsPage">Следующая страница</a
-                >
-                <p
-                class="survey_next-page task"
-                id="surveyTask"
-                >Покорми птичку <span id="surveyCounter">10 раз</span> и сможешь пройти дальше</p>
-            
+
+            <div class="survey_wrap-radio">
+                <input
+                    type="radio"
+                    id="animalsDragon"
+                    name="animals"
+                    value="дракончика"
+                    required
+                />
+                <p class="survey_labelText">Дракончика</p>
+                <input
+                    type="radio"
+                    id="animalsCat"
+                    name="animals"
+                    value="котика-фамильяра"
+                />
+                <p class="survey_labelText">Котика-фамильяра</p>
+                <input
+                    type="radio"
+                    id="animalsHorse"
+                    name="animals"
+                    value="лошадь"
+                    required
+                />
+                <p class="survey_labelText">Лошадь</p>
+                <input
+                    type="radio"
+                    id="animalsBird"
+                    name="animals"
+                    value="птичку-фамильяра"
+                />
+                <p class="survey_labelText">Птичку-фамильяра</p>
+            </div>
+
+            <div class="survey_wrap-result">
+                <p id="animalsShowAnswersContainer"></p>
+                <button
+                    id="surveySubmitButton"
+                    class="survey_button"
+                    type="submit"
+                    class="submit">Тык для сохранения</button>
+            </div>
+
+            <a
+                class="survey_next-page"
+                id="surveyButtonNextPage"
+                href="../resultsPage">Следующая страница</a
+            >
+            <p class="survey_next-page task" id="surveyTask">
+                Покорми птичку <span id="surveyCounter">10 раз</span> и сможешь пройти
+                дальше
+            </p>
+
             <div class="survey_container-bird"><Grain /></div>
         </div>
     </form>

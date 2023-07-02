@@ -3,7 +3,6 @@ import Bird from "./Bird.astro";
 ---
 
 <script>
-   
     // const veiwResultGrain = document.getElementById("veiw-result-Grain");
 
     document.addEventListener("click", function (event) {
@@ -11,12 +10,14 @@ import Bird from "./Bird.astro";
             const grainDiv = document.createElement("div");
             const birdContainer = document.getElementById("bird_walk");
             const distanceFromContainerToLeft =
-            document.getElementById("main").offsetLeft;
+                document.getElementById("main").offsetLeft;
             const distanceBetweenGrainAndFloor =
                 birdContainer.offsetTop +
                 birdContainer.offsetHeight -
-                event.clientY -6 ;
-            grainDiv.style.left = event.clientX -distanceFromContainerToLeft +"px";
+                event.clientY -
+                6;
+            grainDiv.style.left =
+                event.clientX - distanceFromContainerToLeft + "px";
             grainDiv.style.top = event.clientY + "px";
 
             if (distanceBetweenGrainAndFloor > 10) {
@@ -72,7 +73,6 @@ import Bird from "./Bird.astro";
 
 <style>
     section {
-     
     }
     .grain_bird-container {
         display: inline;

@@ -1,6 +1,5 @@
 <script>
-    
-const results = document.getElementById('results');
+    const results = document.getElementById("results");
     const container = document.getElementById("main");
     document.addEventListener("click", function (event) {
         const birdWalk = document.getElementById("bird_walk");
@@ -8,7 +7,8 @@ const results = document.getElementById('results');
         const birdImage = document.getElementById("bird_image");
         const mouseX = event.clientX;
         const mouseXInsideContainer =
-            mouseX - (window.innerWidth - container.getBoundingClientRect().width)/2;
+            mouseX -
+            (window.innerWidth - container.getBoundingClientRect().width) / 2;
         const birdImagePosition = birdImage.getBoundingClientRect().x;
         let isClickOnLeft = mouseX < birdImagePosition ? true : false;
         birdWalk.style.transform =
@@ -26,10 +26,8 @@ const results = document.getElementById('results');
         }, 100);
         birdImage.style.transform =
             isClickOnLeft === true ? "scale(1,1)" : "scale(-1,1)";
-            // results.textContent =`mouseX${mouseX}____window.innerWidth${window.innerWidth}____mouseXInsideContainer${mouseXInsideContainer} ____container.getBoundingClientRect().width${container.getBoundingClientRect().width}____birdImagePosition${birdImagePosition}____isClickOnLeft${isClickOnLeft}`;
+        // results.textContent =`mouseX${mouseX}____window.innerWidth${window.innerWidth}____mouseXInsideContainer${mouseXInsideContainer} ____container.getBoundingClientRect().width${container.getBoundingClientRect().width}____birdImagePosition${birdImagePosition}____isClickOnLeft${isClickOnLeft}`;
     });
-    
-   
 </script>
 
 <style>
@@ -83,14 +81,6 @@ const results = document.getElementById('results');
     </div>
 </div>
 <p id="results"></p>
-
-
-
-
-
-
-
-
 
 <!-- <script>
     const container = document.getElementById("main");
